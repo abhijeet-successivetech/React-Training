@@ -1,6 +1,6 @@
 
 
-import Button from "@/component/assignment-1/Button"; 
+import Button from "@/component/Button"; 
 
 const App = () => {
   return (
