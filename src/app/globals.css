@@ -36,13 +36,10 @@ a {
 .question {
   display: flex;
   flex-direction: column;
- 
+
   font-size: large;
   margin: 1rem;
 }
-
-
-
 
 .card {
   border: 1px solid #ddd;
@@ -65,9 +62,6 @@ a {
   width: 100%;
   gap: 2rem;
 }
-
-
-
 
 .user-name {
   font-size: 22px;
