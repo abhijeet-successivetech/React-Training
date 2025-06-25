@@ -1,4 +1,4 @@
-import Counter from "@/component/Counter";
+import Counter from "@/component/assignment-1/Counter";
 
 const countClick = () => {
   return (

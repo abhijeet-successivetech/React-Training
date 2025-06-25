@@ -1,5 +1,3 @@
-
-
 import Button from "@/component/Button"; 
 
 const App = () => {
