@@ -1,6 +1,6 @@
 import TaskList from "@/component/assignment-1/TaskList";
 
-const showList = () => {
+const ListPage = () => {
   const list = ["wash cloth", "iron suits", "but fruits"];
   return (
     <>
@@ -19,4 +19,4 @@ const showList = () => {
     </>
   );
 }
-export default showList;
+export default ListPage;

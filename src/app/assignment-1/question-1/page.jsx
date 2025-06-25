@@ -1,6 +1,6 @@
 import Greeting from "@/component/assignment-1/Greeting";
 
-const DoGreet = () => {
+const GreetPage = () => {
   return (
     <>
       <div>
@@ -17,4 +17,4 @@ const DoGreet = () => {
     </>
   );
 }
-export default DoGreet;
+export default GreetPage;

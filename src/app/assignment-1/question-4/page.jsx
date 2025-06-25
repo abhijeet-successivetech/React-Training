@@ -1,6 +1,6 @@
 import Counter from "@/component/Counter";
 
-const countClick = () => {
+const CounterPage = () => {
   return (
     <>
       <div>
@@ -20,4 +20,4 @@ const countClick = () => {
     </>
   );
 }
-export default countClick;
+export default CounterPage;

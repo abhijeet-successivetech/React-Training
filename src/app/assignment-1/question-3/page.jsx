@@ -1,6 +1,6 @@
 import Weather from "@/component/assignment-1/Weather";
 
-const getWeather = () => {
+const WeatherPage = () => {
   const weaterList = [2,25,27];
   return (
     <>
@@ -27,4 +27,4 @@ const getWeather = () => {
     </>
   );
 }
-export default getWeather;
+export default WeatherPage;

@@ -2,8 +2,7 @@ import Link from "next/link";
 import "../globals.css";
 import data from "./data";
 
-
-export default function LayoutOFAssignmentOne({ children }) {
+export default function AssignmentOneLayout({ children }) {
   return (
     <div>
       <div>

@@ -1,6 +1,6 @@
 import UserCard from "@/component/assignment-1/UserCard";
 
-const ShowCards = () => {
+const CardPage = () => {
   const users = [
     { name: "Ajay", email: "ajay@gmail.com", avatar: "/boy.png" },
     { name: "Varun", email: "varun@gmail.com", avatar: "/man_2.png" },
@@ -31,4 +31,4 @@ const ShowCards = () => {
     </>
   );
 }
-export default ShowCards;
+export default CardPage;

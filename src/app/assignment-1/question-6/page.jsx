@@ -1,6 +1,6 @@
 import Button from "@/component/Button";
 
-const App = () => {
+const ButtonPage = () => {
   return (
     <>
       <div>
@@ -21,4 +21,4 @@ const App = () => {
     </>
   );
 }
-export default App;
+export default ButtonPage;
