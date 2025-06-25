@@ -1,4 +1,4 @@
-export default function AssignmentOneHome() {
+export default function AssignmentOnePage() {
   const style = {
     backgroundColor: "blue",
     color: "white",
