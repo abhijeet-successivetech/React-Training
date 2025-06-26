@@ -1,4 +1,4 @@
-import Greeting from "@/component/Greeting"
+import Greeting from "@/component/assignment-1/Greeting"
 
 const DoGreet = () => {
   return (
