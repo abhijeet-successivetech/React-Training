@@ -1,6 +1,4 @@
-import { redirect } from 'next/navigation'
-
-export default function Home() {
+export default function AssignmentOnePage() {
   const style = {
     backgroundColor: "blue",
     color: "white",
@@ -10,19 +8,17 @@ export default function Home() {
     border: "none",
     borderRadius: "9px",
   };
-  redirect('/assignment-1')
   return (
     <h1
       style={{
         margin: "1rem",
         display: "flex",
-        flexDirection:'column',
+        flexDirection: "column",
         alignItems: "center",
         gap: "0.5rem",
         justifyContent: "center",
       }}
     >
-      
       Welcome To Assignments
     </h1>
   );

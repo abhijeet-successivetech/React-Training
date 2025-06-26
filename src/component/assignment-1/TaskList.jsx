@@ -1,12 +1,10 @@
-"use client"
-const TaskList = ({listOfTasks}) => {
+const TaskList = ({ listOfTasks }) => {
   return (
     <ol>
-      {listOfTasks.map((listOfTasks,index) => (
+      {listOfTasks.map((listOfTasks, index) => (
         <li key={index}>{listOfTasks}</li>
       ))}
     </ol>
   );
-};
-
+}
 export default TaskList;
