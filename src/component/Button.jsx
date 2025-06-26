@@ -1,15 +1,12 @@
-"use client"
-
-const Button = ({text,color}) => {
-    const style ={
+const Button = ({ text, color }) => {
+  const style = {
     backgroundColor: color,
     color: "red",
     text: "xl",
     padding: 8,
     borderColor: "white",
     borderRadius: "14px",
-    };
+  };
   return <button style={style}>{text}</button>;
-};
-
+}
 export default Button;

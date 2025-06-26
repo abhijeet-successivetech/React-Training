@@ -1,8 +1,4 @@
-"use client"
-
-const Greeting = () =>{
-
-  return <h1>Hello Next.js</h1>
+const Greeting = () => {
+  return <h1>Hello Next.js</h1>;
 };
-
-export default Greeting
+export default Greeting;
