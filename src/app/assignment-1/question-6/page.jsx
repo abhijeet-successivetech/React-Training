@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 
 
 import Button from "@/component/Button"; 
+=======
+import Button from "@/component/Button";
+>>>>>>> ff70403607abd2968d3d3443c72b05e859e71eb0
 
 const ButtonPage = () => {
   return (

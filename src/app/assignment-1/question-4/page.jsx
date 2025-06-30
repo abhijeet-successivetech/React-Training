@@ -1,4 +1,4 @@
-import Counter from "@/component/assignment-1/Counter";
+import Counter from "@/component/Counter";
 
 const CounterPage = () => {
   return (

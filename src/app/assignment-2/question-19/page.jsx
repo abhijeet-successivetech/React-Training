@@ -1,6 +1,6 @@
 import TimerPage from "@/component/assignment-2/TimerPage";
 
-const Employee = () => {
+const Timer = () => {
   return (
     <>
       <p className="question">
@@ -11,10 +11,17 @@ const Employee = () => {
         Develop a component that utilizes the useTimer hook to display and
         control a countdown.
       </p>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          justifyContent: "center",
+        }}
+      >
         <TimerPage />
       </div>
     </>
   );
 };
-export default Employee;
+export default Timer;

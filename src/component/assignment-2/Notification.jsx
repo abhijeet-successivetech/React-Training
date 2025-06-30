@@ -1,27 +1,39 @@
 "use client"
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const Notification = () => {
   const [message, setMessage] = useState("");
 
-  const handleChange = (e) => {
-    setMessage(e.target.value);
-  }
+  useEffect(() => {
+    if (!message) return; 
+    const timer = setTimeout(() => {
+      setMessage(""); 
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [message]);
 
   return (
-    <>
-    <label>
-      Enter message here: 
-      <input 
-      type = "text"
-      value = {message}
-      onChange  ={handleChange}
-      />
-    </label>
-    <br />
+    <div>
+      {message && (
+        <div
+          style={{
+            padding: "10px",
+            backgroundColor: "#f0f0f0",
+            border: "1px solid #ccc",
+            marginBottom: "10px",
+          }}
+        >
+          {message}
+        </div>
+      )}
 
-    <div> </div>
-    </>
+      {" "}
+      <button onClick={() => setMessage("This is a notification!")}>
+        Show Notification
+      </button>
+    </div>
   );
 };
+
 export default Notification;

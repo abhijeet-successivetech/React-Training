@@ -10,7 +10,17 @@ const FormPage = () => {
         As the user types, update the respective state variables.
         Display the entered information below the input fields.
     </p>
-    <PersonForm />
+    <div
+     style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          justifyContent: "center",
+        }}
+    >
+      <PersonForm />
+    </div>
+    
     </>
   );
 };

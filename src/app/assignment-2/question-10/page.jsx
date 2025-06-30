@@ -1,7 +1,7 @@
-import LangConverter from "@/component/assignment-2/LangConverter";
+import LanguageConverter from "@/component/assignment-2/LanguageConverter";
 import LanguageProvider from "@/context/LanguageContext";
 
-const LanguageConverter = () => {
+const ConverterPage = () => {
   return (
     <LanguageProvider>
       <p className="question">
@@ -11,10 +11,17 @@ const LanguageConverter = () => {
         useContext hook to access the current language value. Display different
         language versions of the application's content.
       </p>
-      <div>
-        <LangConverter />
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          justifyContent: "center",
+        }}
+      >
+        <LanguageConverter />
       </div>
     </LanguageProvider>
   );
 };
-export default LanguageConverter;
+export default ConverterPage;

@@ -11,7 +11,14 @@ const LocalStorageHandler = () => {
         within the hook to manage data. Develop a component that uses the
         useLocalStorage hook to manage user preferences.
       </p>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          justifyContent: "center",
+        }}
+      >
         <ManageLocalStorage />
       </div>
     </>

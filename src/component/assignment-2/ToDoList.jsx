@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 import React, { useState } from "react";
 
 const ToDoList = () => {
@@ -23,7 +23,6 @@ const ToDoList = () => {
     );
   };
 
-  // Delete a todo
   const handleDelete = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };

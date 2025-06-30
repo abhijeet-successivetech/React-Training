@@ -11,7 +11,14 @@ const Tasks = () => {
         "Complete" button for one task doesn't trigger unnecessary re-renders
         for other tasks.
       </p>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          justifyContent: "center",
+        }}
+      >
         <TaskList />
       </div>
     </>

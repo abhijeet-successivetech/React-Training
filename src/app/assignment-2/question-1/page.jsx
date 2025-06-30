@@ -1,4 +1,4 @@
-import Counter from "@/component/assignment-1/Counter"
+import Counter from "@/component/Counter"
 
 const CountPage = () => {
   return (
@@ -10,7 +10,16 @@ const CountPage = () => {
      Add two buttons, one for incrementing the count and another for decrementing it.
      When the user clicks on the buttons, update the count state accordingly.
     </p>
+    <div
+     style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          justifyContent: "center",
+        }}
+    >
     <Counter />
+    </div>
     </>
   );
 };
