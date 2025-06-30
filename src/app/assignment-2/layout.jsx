@@ -16,7 +16,7 @@ export default function AssignmentTwoLayout({ children }) {
           display: "flex",
           flexDirection: "column",
           gap: "10px",
-          minWidth: "150px", // fixed sidebar width
+          minWidth: "150px",
           padding: "10px",
           backgroundColor: "#f4f4f4",
           borderRadius: "8px",
