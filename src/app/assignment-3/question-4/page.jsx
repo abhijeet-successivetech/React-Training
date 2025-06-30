@@ -12,7 +12,14 @@ const HomeAbout = () => {
         to the login page. Display a message on the Home page welcoming the
         authenticated user.
       </p>
-      <div>
+      <div
+       style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          justifyContent: "center",
+        }}
+      >
         <Link href={"/assignment-3/question-4/Login"}>
           <button>Login</button>
         </Link>

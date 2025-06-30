@@ -1,6 +1,5 @@
 import AuthComponent from "@/component/assignment-3/AuthComponent";
 import { AuthProvider } from "@/component/assignment-3/AuthContext";
-import Login from "@/component/assignment-3/Login";
 
 const Auth = () => {
   return (
