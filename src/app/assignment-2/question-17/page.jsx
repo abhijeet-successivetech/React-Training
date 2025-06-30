@@ -11,7 +11,14 @@ const ClipboardCopy = () => {
         copying action. Develop a component that uses the useClipboard hook to
         provide a copy button for text.
       </p>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          justifyContent: "center",
+        }}
+      >
         <CopyClipboard />
       </div>
     </>

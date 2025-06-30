@@ -4,14 +4,37 @@ import data from "./data";
 
 export default function AssignmentTwoLayout({ children }) {
   return (
-    <div>
-      <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "flex-start",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+          minWidth: "150px", // fixed sidebar width
+          padding: "10px",
+          backgroundColor: "#f4f4f4",
+          borderRadius: "8px",
+        }}
+      >
         {data.map((item, index) => (
-          <div key={index} style={{ display: "inline-block", marginRight: "10px" }}>
+          <div key={index}>
             <Link href={item.url}>{item.name}</Link>
-            
           </div>
         ))}
+      </div>
+
+      <div
+        style={{
+          flex: 1,
+          padding: "20px",
+        }}
+      >
         {children}
       </div>
     </div>

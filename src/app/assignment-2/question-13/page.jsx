@@ -9,9 +9,17 @@ const IncrementDecrementCounter = () => {
         Child that increments the count. Use the useCallback hook in the Parent
         to memoize the callback function with a dependency on the count state.
         Display the count in the Child component. Implement a button in the
-        Child coimport parent from "@/components/assignment-2";mponent that resets the count to zero when clicked.
+        Child coimport parent from "@/components/assignment-2";mponent that
+        resets the count to zero when clicked.
       </p>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          justifyContent: "center",
+        }}
+      >
         <Parent />
       </div>
     </>

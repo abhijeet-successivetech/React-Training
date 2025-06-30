@@ -10,7 +10,14 @@ const Student = () => {
         student names. Render the list of student names on the screen. Include a
         button that, when clicked, appends a new student name to the list.
       </p>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          justifyContent: "center",
+        }}
+      >
         <StudentList />
       </div>
     </>

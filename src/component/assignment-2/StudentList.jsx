@@ -2,35 +2,59 @@
 import React, { useState, useMemo } from "react";
 
 const StudentList = () => {
-  const [students, setStudents] = useState(["Raj", "Shekhar", "Jitesh"]);
+  const initialStudents = useMemo(() => ["Alice", "Bob", "Charlie"], []);
+  const [students, setStudents] = useState(initialStudents);
   const [newStudent, setNewStudent] = useState("");
 
-  const memoizedStudents = useMemo(() => students, [students]);
-
   const addStudent = () => {
-    setStudents([...students, newStudent]);
+    if (newStudent.trim() === "") return;
+    setStudents((prev) => [...prev, newStudent.trim()]);
     setNewStudent("");
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div
+      style={{
+        padding: "20px",
+        fontFamily: "Arial, sans-serif",
+        maxWidth: "400px",
+        margin: "0 auto",
+      }}
+    >
       <h2>Student List</h2>
 
-      <ul>
-        {memoizedStudents.map((student, index) => (
-          <li key={index}>{student}</li>
+      <ul style={{ paddingLeft: "1.2rem", marginBottom: "1rem" }}>
+        {students.map((student, index) => (
+          <li key={index} style={{ marginBottom: "0.25rem" }}>
+            {student}
+          </li>
         ))}
       </ul>
 
-      <div style={{ marginTop: "20px" }}>
+      <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
         <input
           type="text"
-          placeholder="Enter student name"
+          placeholder="Enter new student name"
           value={newStudent}
           onChange={(e) => setNewStudent(e.target.value)}
-          style={{ padding: "5px", marginRight: "10px" }}
+          style={{ flexGrow: 1, padding: "8px" }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") addStudent();
+          }}
         />
-        <button onClick={addStudent}>Add Student</button>
+        <button
+          onClick={addStudent}
+          style={{
+            padding: "8px 16px",
+            cursor: "pointer",
+            backgroundColor: "#007bff",
+            color: "#fff",
+            border: "none",
+            borderRadius: "4px",
+          }}
+        >
+          Add Student
+        </button>
       </div>
     </div>
   );

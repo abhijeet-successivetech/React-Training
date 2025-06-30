@@ -13,7 +13,14 @@ const Employee = () => {
         on the screen. Include a button that, when clicked, updates the employee
         data with new salaries.
       </p>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          justifyContent: "center",
+        }}
+      >
         <EmployeeSalary />
       </div>
     </>

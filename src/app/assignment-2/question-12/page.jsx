@@ -10,7 +10,14 @@ const Votes = () => {
         state and dispatch actions. Allow users to vote for their preferred
         options. Display the current vote count for each option.
       </p>
-      <div>
+      <div
+       style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+          justifyContent: "center",
+        }}
+      >
         <VotingApp />
       </div>
     </>

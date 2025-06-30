@@ -2,8 +2,8 @@
 import { LanguageContext } from "@/context/LanguageContext";
 import { useContext } from "react";
 
-const LangConverter = () => {
-  const { currentLang, languageConverter } = useContext(LanguageContext);
+const LanguageConverter = () => {
+  const { currentLanguage, languageConverter } = useContext(LanguageContext);
 
   return (
     <div
@@ -28,7 +28,7 @@ const LangConverter = () => {
           marginBottom: "10px",
         }}
       >
-        {currentLang === "English"
+        {currentLanguage === "English"
           ? "Welcome to our application!"
           : "¡Bienvenido a nuestra aplicación!"}
       </h1>
@@ -41,7 +41,7 @@ const LangConverter = () => {
           maxWidth: "600px",
         }}
       >
-        {currentLang === "English"
+        {currentLanguage === "English"
           ? "This is a language switcher application."
           : "Esta es una aplicación para cambiar de idioma."}
       </p>
@@ -58,12 +58,11 @@ const LangConverter = () => {
           borderRadius: "5px",
         }}
       >
-        {currentLang === "English"
+        {currentLanguage === "English"
           ? "Switch to Spanish"
           : "Cambiar a inglés(Switch to English)"}
       </button>
     </div>
   );
 };
-
-export default LangConverter;
+export default LanguageConverter;
