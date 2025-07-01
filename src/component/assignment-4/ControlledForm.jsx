@@ -31,7 +31,7 @@ const ControlledForm = () => {
       
       <label>
 
-        Name
+        Name :{" "}
         <input
           type="text"
           id="name"
