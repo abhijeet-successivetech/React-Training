@@ -1,6 +1,6 @@
 import DropDown from "@/component/assignment-4/DropDown";
 
-const DisplayPage = () => {
+const DropDownPage = () => {
   return (
     <>
       <p className="question">
@@ -8,8 +8,10 @@ const DisplayPage = () => {
         selected option using state. When an option is selected, display a
         message showing the selected value.
       </p>
+      <div>
       <DropDown/>
+      </div>
     </>
   );
 };
-export default DisplayPage;
+export default DropDownPage;

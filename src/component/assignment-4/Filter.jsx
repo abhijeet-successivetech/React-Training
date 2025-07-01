@@ -2,40 +2,39 @@
 import { useState } from "react";
 
 const Filter = () => {
-  const myMobiles = [
-    "Samsung",
-    "Xiaomi",
-    "Realme",
-    "Nothing",
-    "Motorola",
-    "Apple",
+  const myitems = [
+    "Red",
+    "Blue",
+    "Yello",
+    "Green",
+    "Brown",
+    "White",
   ];
   
-  const [mobiles, setMobiles] = useState(myMobiles);
+  const [items, setitems] = useState(myitems);
   const [searchTerm, setSearchTerm] = useState("");
 
   const changeHandler = (e) => {
-    const searchValue = e.target.value; // Directly use the input value
+    const searchValue = e.target.value; 
     setSearchTerm(searchValue);
     
     if (searchValue === "") {
-      setMobiles(myMobiles);
+      setitems(myitems);
     } else {
-      setMobiles((prev) => {
-        return myMobiles.filter((item) => item.toLowerCase().includes(searchValue.toLowerCase()));
-      });
+      setitems(myitems.filter((item) => item.toLowerCase().includes(searchValue.toLowerCase())));
     }
   };
 
   return (
-    <>
+    <div className="container-center">
+      <label>Search here: </label>
       <input type="text" onChange={changeHandler} value={searchTerm} />
       <ul>
-        {mobiles.map((mobile, index) => (
+        {items.map((mobile, index) => (
           <li key={index}>{mobile}</li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 export default Filter;

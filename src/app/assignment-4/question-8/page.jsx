@@ -9,7 +9,9 @@ const Temperature = () => {
         both inputs. When the user enters a value in one input, the other input
         should update with the converted temperature.
       </p>
+      <div>
       <CelsiusToFahrenheit />
+      </div>
     </>
   );
 };

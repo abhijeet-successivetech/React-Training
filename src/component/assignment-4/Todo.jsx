@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const ToDo = () => {
+const Todo = () => {
   const [todos, setTodos] = useState([]);
   const [task, setTask] = useState("");
 
@@ -13,7 +13,7 @@ const ToDo = () => {
     setTodos((prev) => [...prev, newTodo]);
   };
   return (
-    <>
+    <div className="container-center">
       <label htmlFor="">
         {" "}
         Enter tasks :{" "}
@@ -24,7 +24,7 @@ const ToDo = () => {
           {todos && todos?.map((todo,index) => <li key={index}>{todo.task}</li>)}
         </ul>
       </label>
-    </>
+    </div>
   );
 };
-export default ToDo;
+export default Todo;

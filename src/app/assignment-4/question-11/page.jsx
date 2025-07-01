@@ -8,7 +8,9 @@ const ModalPage = () => {
         component. Use it to display additional information or capture user
         input within your app.
       </p>
+      <div>
       <ModalComponent />
+      </div>
     </>
   );
 };

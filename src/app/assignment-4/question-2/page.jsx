@@ -1,6 +1,5 @@
-import Form from "@/component/assignment-4/Form";
-
-const InputPage = () => {
+import ControlledForm from "@/component/assignment-4/ControlledForm";
+const ControlledInputPage = () => {
   return (
     <>
       <p className="question">
@@ -9,8 +8,10 @@ const InputPage = () => {
         component. When the user submits the form, log the form data to the
         console.
       </p>
-      <Form/>
+      <div>
+      <ControlledForm/>
+      </div>
     </>
   );
 };
-export default InputPage;
+export default ControlledInputPage;

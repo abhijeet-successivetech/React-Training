@@ -15,10 +15,11 @@ const PasswordValidate = () => {
     }
   };
   return (
+    <div className="container-center">
     <form onSubmit={submitHandler}>
       <label htmlFor="">
         {" "}
-        UserName
+        UserName: 
         <input
           required
           type="text"
@@ -27,7 +28,7 @@ const PasswordValidate = () => {
       </label>
       <label>
         {" "}
-        Password
+        Password: 
         <input
           required
           type="password"
@@ -36,17 +37,18 @@ const PasswordValidate = () => {
       </label>
       <label>
         {" "}
-        Confirm Password
+        Confirm Password: 
         <input
           required
           type="password"
           onChange={(e) => setConfPassword(e.target.value)}
         />
       </label>{" "}
-      <button disabled={password != confPassword} type="submit">
+      <button className="button-primary" disabled={password != confPassword} type="submit">
         Submit
       </button>
     </form>
+    </div>
   );
 };
 export default PasswordValidate;

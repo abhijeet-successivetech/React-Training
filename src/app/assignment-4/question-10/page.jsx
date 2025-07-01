@@ -1,4 +1,4 @@
-import MaterailForm from "@/component/assignment-4/FormValidation";
+import FormValidation from "@/component/assignment-4/FormValidation";
 const FormPage = () => {
   return (
     <>
@@ -7,7 +7,9 @@ const FormPage = () => {
         validation. Ensure that error messages are displayed when the user
         enters invalid data.
       </p>
+      <div>
       <FormValidation/>
+      </div>
     </>
   );
 };

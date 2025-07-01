@@ -1,6 +1,5 @@
-import FormPage from "./FormPage";
-
-const Form = () => {
+import SubmitValidation from "@/component/assignment-4/SubmitValidation";
+const SubmitForm = () => {
   return (
     <>
       <p className="question">
@@ -9,9 +8,11 @@ const Form = () => {
         Display a summary of errors if the user attempts to submit an invalid
         form.
       </p>
-      <FormPage/>
+      <div>
+      <SubmitValidation/>
+      </div>
     </>
   );
 };
 
-export default Form;
+export default SubmitForm;

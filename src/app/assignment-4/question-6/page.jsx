@@ -1,4 +1,4 @@
-import ToDo from "@/component/assignment-4/ToDo";
+import Todo from "@/component/assignment-4/Todo";
 
 const TodoList = () => {
   return (
@@ -8,7 +8,9 @@ const TodoList = () => {
         tasks and a list to display them. Use controlled components to handle
         the input and update the list of tasks.
       </p>
-      <ToDo />
+      <div>
+      <Todo />
+      </div>
     </>
   );
 };

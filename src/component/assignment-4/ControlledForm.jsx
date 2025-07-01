@@ -1,7 +1,8 @@
 "use client";
+
 import { useState } from "react";
 
-const Form = () => {
+const ControlledForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     gender: "",
@@ -22,11 +23,14 @@ const Form = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(formData);
+    alert("form submitted")
   };
 
   return (
     <form onSubmit={submitHandler}>
+      
       <label>
+
         Name
         <input
           type="text"
@@ -36,7 +40,7 @@ const Form = () => {
           value={formData.name}
         />
       </label>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex",gap:"1rem"}}>
         <div>Gender : </div>
 
         <label>
@@ -72,7 +76,7 @@ const Form = () => {
           Other
         </label>
       </div>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex",gap:"1rem" }}>
         <div>Subjects : </div>
 
         <label>
@@ -114,8 +118,9 @@ const Form = () => {
           Hindi
         </label>
       </div>
-      <button type="submit">Submit</button>
+      <button className="button-primary" type="submit" >Submit</button>
     </form>
   );
 };
-export default Form;
+
+export default ControlledForm;

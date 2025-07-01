@@ -35,12 +35,12 @@ const navigationItems = [
 
 export default function Sidebar({ children }) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isClient, setIsClient] = useState(false); // New state to check if client-side rendering
+  const [isClient, setIsClient] = useState(false);
   const theme = useTheme();
   const pathname = usePathname();
 
   useEffect(() => {
-    setIsClient(true); // Set to true after the component has mounted on the client side
+    setIsClient(true);
   }, []);
 
   const handleDrawerToggle = () => {

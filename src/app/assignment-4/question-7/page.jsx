@@ -9,7 +9,9 @@ const FilterPage = () => {
         list of items displayed below. The list should dynamically update to
         show only items matching the search query.
       </p>
+      <div>
       <Filter />
+      </div>
     </>
   );
 };

@@ -6,9 +6,31 @@ const FormValidation = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confPassword, setConfPassword] = useState("");
-
+  const [isPasswordWrong, setIsPasswordWrong] = useState(false);
+  const [isUserNameWrong,setIsUserNameWrong]=useState(false);
+  const [passwordMatch,setPasswordMatch]=useState(true);
   const submitHandler = (e) => {
     e.preventDefault();
+    setIsUserNameWrong(false);
+    setIsPasswordWrong(false);
+    setPasswordMatch(true);
+    if(userName.trim().length<2){
+      setIsUserNameWrong(true);
+      return;
+    }
+    if (
+      password.length < 8 ||
+      !["*", "&", "!", "@", "#"].some((op) => password.includes(op))
+    ) {
+
+      setIsPasswordWrong(true);
+      return;
+    }
+
+    if(password!==confPassword){
+      setPasswordMatch(false);
+      return;
+    }
     console.log(`${userName} logged in successfully`);
   };
   return (
@@ -23,6 +45,7 @@ const FormValidation = () => {
         label="Name"
         varient="outlined"
         value={userName}
+        error={isUserNameWrong}
         helperText={!userName ? "Enter username" : ""}
         onChange={(e) => setUserName(e.target.value)}
       />
@@ -30,11 +53,7 @@ const FormValidation = () => {
         label="Password"
         type="password"
         varient="standard"
-        error={
-          !userName ||
-          password.length < 8 ||
-          !["*", "&", "!", "@", "#"].some((op) => password.includes(op))
-        }
+        error={isPasswordWrong}
         value={password}
         helperText={
           (password.length < 8 ||
@@ -47,20 +66,13 @@ const FormValidation = () => {
         label="Confirm Password"
         varient="standard"
         type="password"
-        error={!userName || !password || !confPassword}
+        error={!passwordMatch}
         value={confPassword}
         helperText={password != confPassword && "Password do not match"}
         onChange={(e) => setConfPassword(e.target.value)}
       />
       <Button
-        disabled={
-          !userName ||
-          !password ||
-          !confPassword ||
-          password != confPassword ||
-          password.length < 8 ||
-          !["*", "&", "!", "@", "#"].some((op) => password.includes(op))
-        }
+       
         type="submit"
       >
         Submit

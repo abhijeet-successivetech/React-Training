@@ -1,16 +1,18 @@
-import PasswordValidate from "@/component/assignment-4/PasswordValidate";
+import ControlledInput from "@/component/assignment-4/ControlledInput";
 
 const DisplayPage = () => {
   return (
     <>
       <p className="question">
-        Q4. Build a registration form with two password fields. Implement
-        controlled components for both password inputs. Add a validation rule to
-        ensure that the two passwords match before allowing the form submission.
+        Q3. Create a component with controlled input field and a button. When
+        the user enters a specific value into the input (e.g., "show"), a new
+        component should be rendered below the input, displaying a message.
+        Otherwise, nothing should be displayed.
       </p>
-      <PasswordValidate />
+      <div>
+        <ControlledInput />
+      </div>
     </>
   );
 };
-
 export default DisplayPage;

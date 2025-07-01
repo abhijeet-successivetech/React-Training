@@ -1,4 +1,4 @@
-import Input from "@/component/assignment-4/Input";
+import InputField from "@/component/assignment-4/InputField";
 
 const InputPage = () => {
   return (
@@ -9,7 +9,9 @@ const InputPage = () => {
         component's state. When the user types into the input field, the
         component's state should update accordingly.
       </p>
-      <Input />
+      <div>
+      <InputField />
+      </div>
     </>
   );
 };

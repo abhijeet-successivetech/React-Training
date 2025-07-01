@@ -27,14 +27,14 @@ const columns = [
 ];
 
 const rows = [
-  { id: 1, name: "Rajesh", age: 25, gender: "Male" },
-  { id: 2, name: "Rita", age: 22, gender: "Female" },
-  { id: 3, name: "Rajneesh", age: 25, gender: "Male" },
-  { id: 4, name: "Ritika", age: 16, gender: "Female" },
-  { id: 5, name: "Abhijeet", age: 22, gender: "Male" },
+  { id: 1, name: "Emraan", age: 20, gender: "Male" },
+  { id: 2, name: "Kush", age: 22, gender: "Male" },
+  { id: 3, name: "Bhagat", age: 25, gender: "Male" },
+  { id: 4, name: "Ruhi", age: 16, gender: "Female" },
+  { id: 5, name: "Abhijeet", age: 21, gender: "Male" },
   { id: 6, name: "Yash", age: 20, gender: "Male" },
-  { id: 7, name: "Gaurav", age: 24, gender: "Male" },
-  { id: 8, name: "Nitin", age: 26, gender: "Male" },
+  { id: 7, name: "Gaurav", age: 21, gender: "Male" },
+  { id: 8, name: "Singh", age: 22, gender: "Male" },
 ];
 
 const paginationModel = { page: 0, pageSize: 5 };

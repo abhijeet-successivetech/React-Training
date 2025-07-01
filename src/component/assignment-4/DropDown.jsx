@@ -10,8 +10,8 @@ const DropDown = () => {
   ];
 
   return (
-    <>
-      <select
+    <div className="container-center">
+      <select 
         onChange={(e) => {
           setOptionValue(e.target.value);
         }}
@@ -25,7 +25,7 @@ const DropDown = () => {
         ))}
       </select>
       {optionValue && <p>The assignment is {optionValue}</p>}
-    </>
+    </div>
   );
 };
 export default DropDown;

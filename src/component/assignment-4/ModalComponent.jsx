@@ -44,7 +44,7 @@ const ModalComponent = () => {
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
+    <div className="container-center">
       {show && (
         <>
           <Typography>Name {formData.name}</Typography>
