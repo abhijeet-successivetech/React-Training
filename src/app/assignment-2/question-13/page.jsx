@@ -2,7 +2,7 @@ import Parent from "@/component/assignment-2/Parent";
 
 const IncrementDecrementCounter = () => {
   return (
-    <>
+    <div className="flex">
       <p>
         Q13. create two components: Parent and Child. In the Parent component,
         maintain a count state. Pass a callback function from the Parent to the
@@ -12,17 +12,10 @@ const IncrementDecrementCounter = () => {
         Child coimport parent from "@/components/assignment-2";mponent that
         resets the count to zero when clicked.
       </p>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          justifyContent: "center",
-        }}
-      >
+      <div>
         <Parent />
       </div>
-    </>
+    </div>
   );
 };
 export default IncrementDecrementCounter;

@@ -23,28 +23,13 @@ const EmployeeSalary = () => {
   };
 
   return (
-    <div
-      style={{
-        padding: "1.5rem",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "1rem",
-        textAlign: "center",
-      }}
-    >
+    <div className="container-center">
       <h2>Employee Salaries</h2>
 
-      <ul style={{ listStyleType: "none", padding: 0, width: "100%" }}>
+      <ul >
         {employees.map((emp, index) => (
           <li
-            key={index}
-            style={{
-              padding: "0.5rem",
-              display: "flex",
-              fontSize: "1rem",
-            }}
-          >
+            key={index}>
             <span>{emp.name}</span>
             <span>Rs {emp.salary.toLocaleString()}</span>
           </li>
@@ -56,15 +41,9 @@ const EmployeeSalary = () => {
       </h3>
 
       <button
+        className="button-primary"
         onClick={updateSalaries}
-        style={{
-          padding: "0.5rem",
-          fontSize: "1rem",
-          backgroundColor: "#007bff",
-          color: "#fff",
-          border: "none",
-        }}
-      >
+        >
         Update Salaries
       </button>
     </div>

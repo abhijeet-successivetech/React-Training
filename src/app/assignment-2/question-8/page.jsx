@@ -2,7 +2,7 @@ import Slideshow from "@/component/assignment-2/Slideshow";
 
 const ImageSlider = () => {
   return (
-    <>
+    <div className="flex">
       <p className="question">
         Q8. Use the useEffect hook to manage the current slide and transition.
         Add few images atleast 10 in public folder to populate the slideshow.
@@ -12,7 +12,7 @@ const ImageSlider = () => {
       <div>
         <Slideshow />
       </div>
-    </>
+    </div>
   );
 };
 export default ImageSlider;

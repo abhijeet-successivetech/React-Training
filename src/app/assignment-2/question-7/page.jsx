@@ -2,7 +2,7 @@ import Notification from "@/component/assignment-2/Notification";
 
 const NotificationPage = () => {
   return (
-    <>
+    <div className="flex">
       <p className="question">
         Q7.Create a functional component called Notification. Use the useState
         hook to manage a state variable named message initialized to an empty
@@ -11,17 +11,10 @@ const NotificationPage = () => {
         message in a div element. After 5 seconds, clear the message to hide the
         notification.
       </p>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          justifyContent: "center",
-        }}
-      >
+      <div>
         <Notification />
       </div>
-    </>
+    </div>
   );
 };
 export default NotificationPage;

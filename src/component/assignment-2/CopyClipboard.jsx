@@ -7,17 +7,7 @@ const CopyClipboard = () => {
   const { copied, copy } = useClipboard();
 
   return (
-    <div
-      style={{
-        padding: "1rem",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "1rem",
-        maxWidth: "90%",
-        margin: "0 auto",
-      }}
-    >
+    <div className="container-center">
       <h2 style={{ margin: 0 }}>Copy to Clipboard</h2>
 
       <div
@@ -42,13 +32,8 @@ const CopyClipboard = () => {
           }}
         />
         <button
-          onClick={() => copy(text)}
-          style={{
-            padding: "0.5rem 1rem",
-            cursor: "pointer",
-            minWidth: "80px",
-          }}
-        >
+          className="button-primary"
+          onClick={() => copy(text)}>
           {copied ? "Copied!" : "Copy"}
         </button>
       </div>

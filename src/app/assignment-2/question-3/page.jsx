@@ -2,7 +2,7 @@ import ToDoList from "@/component/assignment-2/ToDoList";
 
 const List = () => {
   return (
-    <>
+    <div className="flex">
       <p className="question">
         Q3.Create a functional component called ToDoList. Use the useState hook
         to manage a state variable named todos, initialized as an empty array.
@@ -17,11 +17,12 @@ const List = () => {
           alignItems: "center",
           gap: "0.5rem",
           justifyContent: "center",
+          width:"100%"
         }}
       >
         <ToDoList />
       </div>
-    </>
+    </div>
   );
 };
 export default List;

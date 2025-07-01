@@ -8,41 +8,23 @@ const ManageLocalStorage = () => {
   const handleRemove = () => remove();
 
   return (
-    <div
-      style={{
-        padding: "1.5rem",
-        margin: "0 auto",
-        textAlign: "center",
-        display: "flex",
-        gap: "1rem",
-      }}
-    >
+    <div className="container-center">
       <h2>Auth Type: {getValue()}</h2>
 
       <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
         <button
           onClick={handleSet}
-          style={{
-            padding: "0.5rem",
-            backgroundColor: "#007bff",
-            color: "#fff",
-            border: "none",
-            borderRadius: "4px",
-          }}
+          className="button-primary"
         >
           Set AuthType
         </button>
 
         <button
-          onClick={handleRemove}
+        className="button-primary"
           style={{
-            padding: "0.5rem",
-            backgroundColor: "#dc3545",
-            color: "#fff",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-          }}
+          backgroundColor: "#dc3545" }}
+          onClick={handleRemove}
+          
         >
           Remove AuthType
         </button>
