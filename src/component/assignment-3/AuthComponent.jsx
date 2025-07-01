@@ -7,24 +7,17 @@ const AuthComponent = () => {
     useContext(AuthContext);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        width: "90%",
-        justifyContent: "space-between",
-        gap: "1rem",
-      }}
-    >
+    <div className="container-center">
       {loggedIn ? (
         <button
-          style={{ padding: "10px", fontSize: "1rem" }}
+          className="button-primary"
           onClick={handleLogout}
         >
           Logout
         </button>
       ) : (
         <button
-          style={{ padding: "10px", fontSize: "1rem" }}
+          className="button-primary" 
           onClick={handleAuth}
         >
           Login

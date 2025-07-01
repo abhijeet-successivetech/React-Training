@@ -9,25 +9,21 @@ const Child = () => {
   const { dark, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        gap: "1rem",
-        flexDirection: "column",
-      }}
-    >
+    <div className="container-center">
       {loggedIn ? (
-        <button style={{ width: "10rem" }} onClick={handleLogout}>
+        <button className="button-primary" onClick={handleLogout}>
           Logout
         </button>
       ) : (
-        <button style={{ width: "10rem" }} onClick={handleAuth}>
+        <button className="button-primary" onClick={handleAuth}>
           Login
         </button>
       )}
-      <h1>{loggedIn ? `Welcome, ${userName}!` : "Please log in to change theme."}</h1>
+      <h1>
+        {loggedIn ? `Welcome, ${userName}!` : "Please log in to change theme."}
+      </h1>
       {loggedIn ? (
-        <div className="">
+        <div>
           <h2
             style={{
               backgroundColor: dark ? "black" : "white",
@@ -36,7 +32,7 @@ const Child = () => {
           >
             Current Theme: {dark ? `Dark` : "Light"}
           </h2>
-          <button style={{ width: "10rem" }} onClick={toggleTheme}>
+          <button className=".button-primary" onClick={toggleTheme}>
             Toggle Theme
           </button>
         </div>

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function DashboardLayout({ children }) {
   return (
-    <div style={{ display: "flex" }}>
+    <div>
       <nav
         style={{
           width: "300px",

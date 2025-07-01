@@ -14,14 +14,7 @@ const Auth = () => {
         (light/dark) using a button in the child component. Display the theme
         preference in the UI and adjust the component's styling accordingly.
       </p>
-      <div
-       style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          justifyContent: "center",
-        }}
-      >
+      <div >
         <AuthProvider>
           <ThemeProvider>
             <Child />

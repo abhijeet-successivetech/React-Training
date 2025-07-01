@@ -7,7 +7,7 @@ const ProductPage = () => {
       id: 1,
       name: "redmi note 11",
       type: "Phone",
-      description: "It is a multitasking phone with a beautiful display",
+      description: "It is a multitasking phone",
       price: 20000,
       image: "/assets/phone1.jpg",
     },
@@ -45,7 +45,7 @@ const ProductPage = () => {
     <>
       <p>{myProduct.name}</p>
       <p>{myProduct.type}</p>
-      <img src={myProduct.image} alt="image" />
+      <img className="img-default"src={myProduct.image} alt="image" />
       <p>{myProduct.description}</p>
       <p>Rs {myProduct.price}</p>
       <button onClick={() => redirect("/assignment-3/question-6")}>

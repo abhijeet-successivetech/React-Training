@@ -14,14 +14,7 @@ const Auth = () => {
         user is logged in, show "Welcome, [username]!" Otherwise, display
         "Please log in."
       </p>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          justifyContent: "center",
-        }}
-      >
+      <div>
         <AuthProvider>
           <AuthComponent />
         </AuthProvider>

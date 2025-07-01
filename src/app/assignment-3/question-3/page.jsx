@@ -9,14 +9,7 @@ const HomeAbout = () => {
         appropriate content on each page. Add a "404 Not Found" page for any
         invalid routes.
       </p>
-      <div
-       style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          justifyContent: "center",
-        }}
-      >
+      <div className="link-primary">
         <h1>This is question 3</h1>
         <div className="link">
           <Link href={"/assignment-3/question-3/Home"}>

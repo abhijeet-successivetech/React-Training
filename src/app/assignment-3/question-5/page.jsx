@@ -9,17 +9,7 @@ const HomeAbout = () => {
         navigation links to switch between the sub-pages within the Dashboard
         section. Customize the content displayed on each sub-page.
       </p>
-      <div
-       style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          justifyContent: "center",
-        }}
-      >
-
-        This is Dashboard
-      </div>
+      <div className="container-center">This is Dashboard</div>
     </>
   );
 };

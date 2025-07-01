@@ -29,9 +29,7 @@ const ProductPage = () => {
         parameter and display them on the detail page. Add a "Go Back" button on
         the detail page to return to the list.
       </p>
-      <div style={{display:"flex", marginLeft:"1rem",
-         gap:"1rem"}}
-        >
+      <div className="container-center">
         {products.map((product, index) => (
           <p key={index}>
             <Link href={`/assignment-3/question-6/product/${product.id}`}>
