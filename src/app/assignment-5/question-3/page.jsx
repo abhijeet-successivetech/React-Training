@@ -19,8 +19,8 @@ export default async function UsersPageServer() {
 
  
   return (
-    <>
-      <p>
+    <div className="flex">
+      <p className="question">
         Q3. Enhance your Next.js component that fetches data from a public API by
         adding a loading indicator, such as a spinner. This indicator should be
         visible while the data is being fetched and hidden once the data has
@@ -30,6 +30,6 @@ export default async function UsersPageServer() {
         with the error handling and data display in your component.
       </p>
       <UserList userData={users} error={error} />;
-    </>
+    </div>
   );
 }

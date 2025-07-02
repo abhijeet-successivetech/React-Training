@@ -2,9 +2,8 @@ import ProtectedComponent from "@/app/assignment-5/question-14/ProtectedComponen
 
 const ProtectedPage = () => {
   return (
-    <div style={{ maxWidth: "600px", margin: "2rem auto" }}>
+    <div className="container-center">
       <p>
-        {" "}
         Q14. Create a higher-order component (HOC) named withAuth that restricts
         access to a component only to authenticated users. Implement this HOC on
         a sample component and demonstrate how it protects routes or pages in a

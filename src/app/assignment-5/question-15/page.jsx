@@ -2,8 +2,8 @@ import LoggerComponent from "./LoggerComponent";
 
 const LoggerPage = () => {
   return (
-    <div style={{ maxWidth: "600px", margin: "2rem auto" }}>
-      <p>
+    <div className="container-center">
+      <p className="question">
         {" "}
         Q15. Build a higher-order component (HOC) named withLogger that logs
         component lifecycle events like mounting, unmounting, and updating.

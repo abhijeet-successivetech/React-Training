@@ -7,9 +7,9 @@ const ProtectedComponent = (props) => {
   return (
     <div>
       {loggedIn ? (
-        <button onClick={handleLogout}>logout</button>
+        <button className="button-primary" onClick={handleLogout}>logout</button>
       ) : (
-        <button onClick={handleAuth}>login</button>
+        <button className="button-primary" onClick={handleAuth}>login</button>
       )}
     </div>
   );

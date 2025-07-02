@@ -3,9 +3,8 @@ import Modal from "@/component/assignment-5/ModalComponent";
 
 const PostFormPage = () => {
   return (
-    <div style={{ maxWidth: "600px", margin: "2rem auto" }}>
-      <p>
-        {" "}
+    <div className="container-center">
+      <p className="question">
         Q13. Design and implement a reusable Modal component that allows
         customization of its content. Provide controls to open, close, and
         toggle the modal’s visibility. Demonstrate how to use this component to

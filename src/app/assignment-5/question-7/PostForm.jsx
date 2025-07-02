@@ -62,7 +62,7 @@ export default function PostForm() {
       </div>
 
       <div>
-        <label className="block font-medium mb-1">Content</label>
+        <label>Content</label>
         <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}

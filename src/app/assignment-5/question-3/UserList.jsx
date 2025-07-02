@@ -20,8 +20,8 @@ const UserList = ({ userData, error }) => {
   };
 
   return (
-    <div>
-      <h1>Users List</h1>
+    <div className="container-center">
+      <h2>Users List</h2>
       {localError && (
         <div style={{ color: "red", marginBottom: "20px" }}>
           <p>{localError}</p>

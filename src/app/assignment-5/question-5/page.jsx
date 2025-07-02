@@ -8,7 +8,7 @@ const getUserData = async () => {
 const ServerSideApi = async () => {
   const data = await getUserData();
   return (
-    <>
+    <div className="container-center">
       <p className="question">
         Q5. Create a Next.js component that fetches data from a public API (like
         JSONPlaceholder) using Axios and displays the results on the page. Use
@@ -23,7 +23,7 @@ const ServerSideApi = async () => {
         </>
       )}
 
-    </>
+    </div>
   );
 };
 export default ServerSideApi;

@@ -26,7 +26,7 @@ console.log("currentPage", currentPage);
 
   
   return (
-    <div>
+    <div className="container-center">
       <h1>Posts - page {currentPage}</h1>
       <ul>
         {paginatedPosts.map((post) => (
