@@ -2,7 +2,7 @@ import CopyClipboard from "@/component/assignment-2/CopyClipboard";
 
 const ClipboardCopy = () => {
   return (
-    <>
+    <div className="flex">
       <p className="question">
         Q17. Build a custom hook named useClipboard for copying text to the
         clipboard. Implement a useClipboard hook that takes a text value as a
@@ -21,7 +21,7 @@ const ClipboardCopy = () => {
       >
         <CopyClipboard />
       </div>
-    </>
+    </div>
   );
 };
 export default ClipboardCopy;

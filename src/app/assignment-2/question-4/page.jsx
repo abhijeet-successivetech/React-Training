@@ -2,7 +2,7 @@ import RandomNumberGenerator from "@/component/assignment-2/RandomNumberGenerato
 
 const RandomNumber = () => {
   return (
-    <>
+    <div className="flex">
       <p className="question">
         Q4.Create a functional component called RandomNumberGenerator. Use the
         useState hook to manage a state variable named randomNumber, initialized
@@ -11,17 +11,10 @@ const RandomNumber = () => {
         updates the state when clicked.
       </p>
       <br />
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          justifyContent: "center",
-        }}
-      >
+      <div>
         <RandomNumberGenerator />
       </div>
-    </>
+    </div>
   );
 };
 export default RandomNumber;

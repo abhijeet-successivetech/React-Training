@@ -14,18 +14,18 @@ const CartProvider = ({ children }) => {
       );
 
       if (existingItem) {
-        existingItem.quantity += 1; // Just increase quantity
+        existingItem.quantity += 1; 
       } else {
-        updatedCart.push({ ...item, quantity: 1 }); // Add new item
+        updatedCart.push({ ...item, quantity: 1 }); 
       }
 
       return updatedCart;
     });
   };
 
-  // Remove item from the cart by id
+
   const removeCart = (id) => {
-    setCart((prev) => prev.filter((item) => item.id !== id)); // Filter out item by id
+    setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
   return (

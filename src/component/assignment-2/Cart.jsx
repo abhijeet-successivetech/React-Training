@@ -13,7 +13,7 @@ const Cart = () => {
   ];
 
   return (
-    <div>
+    <div className="container-center">
       <h2>Your Shopping Cart</h2>
 
       {cart.length === 0 ? (
