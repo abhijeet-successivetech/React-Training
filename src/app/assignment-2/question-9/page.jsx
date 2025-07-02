@@ -4,6 +4,7 @@ import ThemeProvider from "@/context/ThemeContext";
 const ThemeSwitcher = () => {
   return (
     <ThemeProvider>
+      <div className="flex">
       <p className="question">
         Q9. Create a theme switcher application using the useContext hook.
         Create a context to manage the current theme (e.g., light or dark).
@@ -11,17 +12,12 @@ const ThemeSwitcher = () => {
         hook to access the theme value and update it. Apply different styles and
         colors to components based on the selected theme.
       </p>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          justifyContent: "center",
-        }}
-      >
+      <div>
         <Theme />
       </div>
+      </div>
     </ThemeProvider>
+  
   );
 };
 

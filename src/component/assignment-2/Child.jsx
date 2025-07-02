@@ -3,7 +3,7 @@ import React from "react";
 const Child = ({ count, onIncrement, onReset }) => {
   return (
     <div
-      style={{ border: "1px solid #ccc", padding: "15px", marginTop: "10px" }}
+    className="container-center"
     >
       <h3>Child Component</h3>
       <p>Count: {count}</p>

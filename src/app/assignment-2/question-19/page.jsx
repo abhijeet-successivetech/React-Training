@@ -2,7 +2,7 @@ import TimerPage from "@/component/assignment-2/TimerPage";
 
 const Timer = () => {
   return (
-    <>
+    <div className="flex">
       <p className="question">
         Q19. Build a custom hook named useTimer for creating countdown timers.
         Create a useTimer hook that takes a countdown duration as a parameter.
@@ -21,7 +21,7 @@ const Timer = () => {
       >
         <TimerPage />
       </div>
-    </>
+    </div>
   );
 };
 export default Timer;

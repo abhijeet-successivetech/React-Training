@@ -2,7 +2,7 @@ import ManageLocalStorage from "@/component/assignment-2/ManageLocalStorage";
 
 const LocalStorageHandler = () => {
   return (
-    <>
+    <div className="flex">
       <p className="question">
         Q18. Design a custom hook named useLocalStorage to interact with local
         storage. Create a useLocalStorage hook that allows storing and
@@ -11,17 +11,10 @@ const LocalStorageHandler = () => {
         within the hook to manage data. Develop a component that uses the
         useLocalStorage hook to manage user preferences.
       </p>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          justifyContent: "center",
-        }}
-      >
+      <div>
         <ManageLocalStorage />
       </div>
-    </>
+    </div>
   );
 };
 export default LocalStorageHandler;

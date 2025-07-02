@@ -14,7 +14,7 @@ const Notification = () => {
   }, [message]);
 
   return (
-    <div>
+    <div className="container-center">
       {message && (
         <div
           style={{
@@ -29,7 +29,7 @@ const Notification = () => {
       )}
 
       {" "}
-      <button onClick={() => setMessage("This is a notification!")}>
+      <button className="button-primary" onClick={() => setMessage("This is a notification!")}>
         Show Notification
       </button>
     </div>

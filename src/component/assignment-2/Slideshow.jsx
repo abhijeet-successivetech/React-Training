@@ -22,17 +22,7 @@ const Slideshow = () => {
   const togglePlay = () => setIsPlaying((prev) => !prev);
 
   return (
-    <div
-      style={{
-        textAlign: "center",
-        padding: "20px",
-        backgroundColor: "#f9f9f9",
-        borderRadius: "8px",
-        boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-        maxWidth: "600px",
-        margin: "30px auto",
-      }}
-    >
+    <div className="container-center">
       <img
         src={data[currentIndex].url}
         style={{
@@ -43,19 +33,8 @@ const Slideshow = () => {
         }}
       />
       <button
-        onClick={togglePlay}
-        style={{
-          marginTop: "15px",
-          padding: "10px 20px",
-          fontSize: "16px",
-          backgroundColor: isPlaying ? "#e63946" : "#2a9d8f",
-          color: "white",
-          border: "none",
-          borderRadius: "4px",
-          cursor: "pointer",
-          transition: "background-color 0.3s ease",
-        }}
-      >
+        className="button-primary"
+        onClick={togglePlay}>
         {isPlaying ? "Pause" : "Play"}
       </button>
       <input

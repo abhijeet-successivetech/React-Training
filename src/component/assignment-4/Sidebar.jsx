@@ -21,13 +21,11 @@ import { usePathname } from 'next/navigation';
 
 const drawerWidth = 280;
 
-// Generate your question links data
 const data = Array.from({ length: 14 }, (_, i) => ({
   link: `/assignment-4/question-${i + 1}`,
   text: `Q ${i + 1}`,
 }));
 
-// Add additional navigation items if needed
 const navigationItems = [
   { link: '/', text: 'Home' },
   ...data,

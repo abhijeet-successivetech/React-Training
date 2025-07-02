@@ -1,4 +1,4 @@
-export default function AssignmentTwoPage() {
+export default function AssignmentFourPage() {
   const style = {
     backgroundColor: "blue",
     color: "white",

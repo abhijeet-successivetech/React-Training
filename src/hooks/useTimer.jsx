@@ -18,7 +18,7 @@ export default function useTimer(initialSeconds) {
       setIsRunning(false);
     }
 
-    return () => clearInterval(timerId); // cleanup interval on unmount or state change
+    return () => clearInterval(timerId);
   }, [isRunning, seconds]);
 
   const start = () => {
