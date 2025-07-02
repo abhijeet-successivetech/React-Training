@@ -1,45 +1,35 @@
 'use client';
-
-import React, { useState, useEffect } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
+import MenuIcon from '@mui/icons-material/Menu';
 import {
-  Drawer,
   AppBar,
-  Toolbar,
+  Box,
+  Drawer,
+  IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
-  IconButton,
+  Toolbar,
   Typography,
-  Box,
   useTheme,
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
+import data from './data.json'; // Ensure it's data.json if importing as a JSON file
 
 const drawerWidth = 280;
 
-const data = Array.from({ length: 14 }, (_, i) => ({
-  link: `/assignment-4/question-${i + 1}`,
-  text: `Q ${i + 1}`,
-}));
-
 const navigationItems = [
-  { link: '/', text: 'Home' },
+  { url: '/', name: 'Home' },
   ...data,
 ];
 
 export default function Sidebar({ children }) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isClient, setIsClient] = useState(false);
   const theme = useTheme();
   const pathname = usePathname();
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -64,7 +54,7 @@ export default function Sidebar({ children }) {
         <Typography variant="h6" component="h1">
           Assignment 4
         </Typography>
-        <IconButton 
+        <IconButton
           onClick={handleDrawerToggle}
           sx={{ display: { xs: 'block', md: 'none' } }}
         >
@@ -76,17 +66,17 @@ export default function Sidebar({ children }) {
         {navigationItems.map((item, index) => (
           <ListItem key={index} disablePadding>
             <Link
-              href={item.link}
+              href={item.url}
               style={{ textDecoration: 'none', width: '100%' }}
             >
               <ListItemButton
                 onClick={handleLinkClick}
-                selected={pathname === item.link}
+                selected={pathname === item.url}
               >
                 <ListItemText
-                  primary={item.text}
+                  primary={item.name}
                   sx={{
-                    color: pathname === item.link ? 'primary.main' : 'text.primary',
+                    color: pathname === item.url ? 'primary.main' : 'text.primary',
                   }}
                 />
               </ListItemButton>
@@ -97,13 +87,9 @@ export default function Sidebar({ children }) {
     </Box>
   );
 
-  if (!isClient) {
-    return null; // Avoid rendering until client-side
-  }
-
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh' }}>
-      {/* App Bar - Show on mobile */}
+      {/* App Bar - Mobile */}
       <AppBar
         position="fixed"
         sx={{
@@ -133,19 +119,19 @@ export default function Sidebar({ children }) {
         component="nav"
         sx={{ width: { md: drawerWidth }, flexShrink: { md: 0 } }}
       >
-        {/* Mobile drawer */}
+        {/* Mobile Drawer */}
         <Drawer
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile
+            keepMounted: true,
           }}
         >
           {drawer}
         </Drawer>
 
-        {/* Desktop drawer */}
+        {/* Desktop Drawer */}
         <Drawer
           variant="permanent"
           sx={{
@@ -163,13 +149,13 @@ export default function Sidebar({ children }) {
         </Drawer>
       </Box>
 
-      {/* Main content */}
+      {/* Main Content */}
       <Box
         component="main"
         sx={{
           flexGrow: 1,
           width: { md: `calc(100% - ${drawerWidth}px)` },
-          mt: { xs: 8, md: 0 }, // Account for mobile app bar
+          mt: { xs: 8, md: 0 },
           minHeight: '100vh',
         }}
       >
