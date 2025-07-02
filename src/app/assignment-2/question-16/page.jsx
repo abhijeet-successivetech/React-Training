@@ -2,7 +2,7 @@ import EmployeeSalary from "@/component/assignment-2/EmployeeSalary";
 
 const Employee = () => {
   return (
-    <>
+    <div className="flex">
       <p className="question">
         Q16. Create a functional component named EmployeeSalary that displays
         the average salary of a list of employees. Define an array of employee
@@ -13,17 +13,10 @@ const Employee = () => {
         on the screen. Include a button that, when clicked, updates the employee
         data with new salaries.
       </p>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          justifyContent: "center",
-        }}
-      >
+      <div>
         <EmployeeSalary />
       </div>
-    </>
+    </div>
   );
 };
 export default Employee;

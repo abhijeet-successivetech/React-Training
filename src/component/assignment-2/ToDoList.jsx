@@ -28,7 +28,7 @@ const ToDoList = () => {
   };
 
   return (
-    <div style={{ padding: 20 }}>
+    <div className="container-center">
       <h1>To-Do List</h1>
       <input
         type="text"
@@ -36,11 +36,11 @@ const ToDoList = () => {
         onChange={(e) => setTask(e.target.value)}
         placeholder="Add a new task"
       />
-      <button onClick={handleAddTodo}>Add</button>
+      <button className="button-primary" onClick={handleAddTodo}>Add</button>
 
       <ul style={{ listStyle: "none", padding: 0 }}>
         {todos.map((todo) => (
-          <li key={todo.id} style={{ margin: "10px 0" }}>
+          <li key={todo.id} style={{ margin: "10px 0",display:"flex",alignItems:"center", justifyContent:"flex-start"}}>
             <input
               type="checkbox"
               checked={todo.completed}
@@ -49,11 +49,13 @@ const ToDoList = () => {
             <p
               style={{
                 marginLeft: 8,
+                
               }}
             >
               {todo.task}
             </p>
-            <button
+            <button 
+              className="button-primary"
               onClick={() => handleDelete(todo.id)}
               style={{ marginLeft: 10 }}
             >

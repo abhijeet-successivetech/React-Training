@@ -12,17 +12,7 @@ const Clock = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "1rem",
-        fontSize: "1.2rem",
-        flexWrap: "wrap",
-        textAlign: "center",
-      }}
-    >
+    <div className="container-center" >
       <p> Current Time: {time.toLocaleTimeString()}</p>
     </div>
   );

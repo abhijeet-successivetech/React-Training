@@ -9,7 +9,7 @@ const VotingApp = () => {
   const [votes, dispatch] = useReducer(voteReducer, initialVotes);
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial" }}>
+    <div className="container-center">
       <h2>Vote for your favorite option:</h2>
       {Object.keys(votes).map((option) => (
         <div key={option} style={{ marginBottom: "10px" }}>

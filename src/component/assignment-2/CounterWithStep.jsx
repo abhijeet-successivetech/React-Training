@@ -14,23 +14,8 @@ const CounterWithStep = () => {
   const handleDecrement = () => setCount((prev) => prev - step);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "1rem",
-        padding: "1rem",
-        margin: "0 auto",
-      }}
-    >
-      <label
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
+    <div className="container-center" >
+      <label>
         <span>Enter the step:</span>
         <input
           type="number"
@@ -45,18 +30,12 @@ const CounterWithStep = () => {
         />
       </label>
 
-      <div
-        style={{
-          display: "flex",
-          gap: "1rem",
-          justifyContent: "center",
-          flexWrap: "wrap",
-        }}
-      >
-        <button onClick={handleIncrement} style={{ padding: "0.5rem 1rem" }}>
+      <div>
+        <button className="button-primary" onClick={handleIncrement} style={{ padding: "0.5rem 1rem" }}>
           Increment
         </button>
-        <button onClick={handleDecrement} style={{ padding: "0.5rem 1rem" }}>
+        {" "}
+        <button className="button-primary" onClick={handleDecrement} style={{ padding: "0.5rem 1rem" }}>
           Decrement
         </button>
       </div>

@@ -2,7 +2,7 @@ import TaskList from "@/component/assignment-2/TaskList";
 
 const Tasks = () => {
   return (
-    <>
+    <div className="flex">
       <p className="question">
         Q14. create a component that displays a list of tasks. Each task has a
         "Complete" button. Implement a feature where clicking the "Complete"
@@ -11,17 +11,10 @@ const Tasks = () => {
         "Complete" button for one task doesn't trigger unnecessary re-renders
         for other tasks.
       </p>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          justifyContent: "center",
-        }}
-      >
+      <div>
         <TaskList />
       </div>
-    </>
+    </div>
   );
 };
 export default Tasks;

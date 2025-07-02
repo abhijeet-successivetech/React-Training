@@ -13,15 +13,7 @@ const PersonForm = () => {
   };
 
   return (
-    <div
-      style={{
-        maxWidth: "400px",
-        margin: "1rem auto",
-        display: "flex",
-        flexDirection: "column",
-        gap: "1rem",
-      }}
-    >
+    <div className="container-center">
       <label style={{ display: "flex", flexDirection: "column" }}>
         First Name:
         <input
