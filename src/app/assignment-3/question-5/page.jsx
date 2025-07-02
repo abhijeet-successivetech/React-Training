@@ -1,6 +1,6 @@
 const HomeAbout = () => {
   return (
-    <>
+    <div className="flex">
       <p className="question">
         Q5. Extend the application to include nested routes for a more complex
         user interface. Create a new section of your application (e.g., a
@@ -10,7 +10,7 @@ const HomeAbout = () => {
         section. Customize the content displayed on each sub-page.
       </p>
       <div className="container-center">This is Dashboard</div>
-    </>
+    </div>
   );
 };
 export default HomeAbout;

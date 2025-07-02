@@ -4,7 +4,7 @@ import Child from "./Child";
 
 const Auth = () => {
   return (
-    <>
+    <div className="flex">
       <p className="question">
         Q2. Extend the previous application to demonstrate the use of nested
         contexts. Create a new context to manage user preferences (e.g., theme
@@ -21,7 +21,7 @@ const Auth = () => {
           </ThemeProvider>
         </AuthProvider>
       </div>
-    </>
+    </div>
   );
 };
 export default Auth;

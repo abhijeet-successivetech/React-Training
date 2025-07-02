@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const HomeAbout = () => {
   return (
-    <>
+    <div className="flex">
       <p className="question">
         Q4. Enhance the previous application by adding protected pages that
         require authentication. Create a login page with a form that accepts a
@@ -17,7 +17,7 @@ const HomeAbout = () => {
           <button>Login</button>
         </Link>
       </div>
-    </>
+    </div>
   );
 };
 export default HomeAbout;

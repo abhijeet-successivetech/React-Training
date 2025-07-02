@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const HomeAbout = () => {
   return (
-    <>
+    <div className="flex">
       <p className="question">
         Q3. creat pages: Home and About. Implement file routing. Create
         navigation links to switch between the Home and About pages. Display
@@ -21,7 +21,7 @@ const HomeAbout = () => {
           </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

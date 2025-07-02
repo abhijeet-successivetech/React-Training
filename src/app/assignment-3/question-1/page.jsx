@@ -3,7 +3,7 @@ import { AuthProvider } from "@/component/assignment-3/AuthContext";
 
 const Auth = () => {
   return (
-    <>
+    <div className="flex">
       <p className="question">
         Q1. create two components: a parent component that acts as a provider
         and a child component that consumes the context. Create a context to
@@ -19,7 +19,7 @@ const Auth = () => {
           <AuthComponent />
         </AuthProvider>
       </div>
-    </>
+    </div>
   );
 };
 export default Auth;

@@ -20,7 +20,7 @@ const ProductPage = () => {
     },
   ];
   return (
-    <>
+    <div className="flex">
       <p className="question">
         Q6. Create a list of items (e.g., products, articles) in your
         application. Implement dynamic routing to display details for each item
@@ -38,7 +38,7 @@ const ProductPage = () => {
           </p>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
