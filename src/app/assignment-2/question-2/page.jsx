@@ -2,7 +2,7 @@ import PersonForm from "@/component/assignment-2/PersonForm";
 
 const FormPage = () => {
   return (
-    <>
+    <div className="flex">
     <p className="question">
       Q2.Create a functional component called PersonForm.
         Use the useState hook to manage three state variables: firstName, lastName, and age, all initialized to empty strings.
@@ -10,18 +10,11 @@ const FormPage = () => {
         As the user types, update the respective state variables.
         Display the entered information below the input fields.
     </p>
-    <div
-     style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          justifyContent: "center",
-        }}
-    >
+    <div>
       <PersonForm />
     </div>
     
-    </>
+    </div>
   );
 };
 

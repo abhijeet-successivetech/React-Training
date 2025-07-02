@@ -10,13 +10,7 @@ const RandomNumberGenerator = () => {
 
   return (
     <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "1rem",
-        justifyContent: "center",
-        padding: "1rem",
-      }}
+    className="container-center"
     >
       <label style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
         The number is: {randomNumber}

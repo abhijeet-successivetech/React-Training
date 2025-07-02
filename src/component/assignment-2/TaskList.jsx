@@ -17,25 +17,12 @@ const TaskList = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        padding: "20px",
-        fontFamily: "Arial, sans-serif",
-        maxWidth: "400px",
-        margin: "0 auto",
-      }}
-    >
+    <div className="container-center">
       <h2>Task List</h2>
-      <ul style={{ paddingLeft: "1.2rem" }}>
+      <ul>
         {tasks.map((task) => (
           <li
             key={task.id}
-            style={{
-              marginBottom: "0.5rem",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
           >
             <span
               style={{
@@ -45,6 +32,7 @@ const TaskList = () => {
             >
               {task.text}
             </span>
+          
             {!task.completed && (
               <button
                 onClick={() => handleComplete(task.id)}
