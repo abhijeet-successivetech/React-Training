@@ -5,10 +5,12 @@ export default function Counter() {
   const [count, setCount] = useState(0);
 
   return (
-    <div>
+      <div>
       <h2>Count: {count}</h2>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      <button onClick={() => setCount(count - 1)}>Decrement</button>
+      <div className="container-center" style={{display:"flex", flexDirection:"column",  gap:"2rem"}} >
+      <button className="button-primary" onClick={() => setCount(count + 1)}>Increment</button>
+      <button className="button-primary" onClick={() => setCount(count - 1)}>Decrement</button>
+    </div>
     </div>
   );
 }
