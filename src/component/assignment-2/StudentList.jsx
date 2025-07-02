@@ -13,21 +13,12 @@ const StudentList = () => {
   };
 
   return (
-    <div
-      style={{
-        padding: "20px",
-        fontFamily: "Arial, sans-serif",
-        maxWidth: "400px",
-        margin: "0 auto",
-      }}
-    >
+    <div className="container-center">
       <h2>Student List</h2>
 
-      <ul style={{ paddingLeft: "1.2rem", marginBottom: "1rem" }}>
+      <ul>
         {students.map((student, index) => (
-          <li key={index} style={{ marginBottom: "0.25rem" }}>
-            {student}
-          </li>
+          <li key={index}>{student}</li>
         ))}
       </ul>
 

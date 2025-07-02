@@ -7,19 +7,19 @@ export default function AssignmentTwoLayout({ children }) {
     <div
       style={{
         display: "flex",
-        flexDirection: "row",
-        alignItems: "flex-start",
       }}
     >
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "10px",
-          minWidth: "150px",
+          gap: "1rem",
+          minWidth: "12rem",
           padding: "10px",
           backgroundColor: "#f4f4f4",
           borderRadius: "8px",
+          justifySelf:"flex-start",
+          textAlign:'center'
         }}
       >
         {data.map((item, index) => (
@@ -31,7 +31,7 @@ export default function AssignmentTwoLayout({ children }) {
 
       <div
         style={{
-          flex: 1,
+          width:"80%",
           padding: "20px",
         }}
       >

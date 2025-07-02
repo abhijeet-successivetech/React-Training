@@ -2,7 +2,7 @@ import Clock from "@/component/assignment-2/Clock";
 
 const ClockPage = () => {
   return (
-    <>
+    <div className="flex">
       <p className="question">
         Q6. Create a functional component called Clock. Use the useState hook to
         manage a state variable named time initialized to the current time. Use
@@ -10,17 +10,10 @@ const ClockPage = () => {
         current time. Render the current time in a element. When the component
         unmounts, clear the interval to stop updating the time.
       </p>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          justifyContent: "center",
-        }}
-      >
+      <div>
         <Clock />
       </div>
-    </>
+    </div>
   );
 };
 export default ClockPage;

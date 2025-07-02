@@ -6,20 +6,7 @@ const LanguageConverter = () => {
   const { currentLanguage, languageConverter } = useContext(LanguageContext);
 
   return (
-    <div
-      style={{
-        width: "100%",
-        marginInline: "auto",
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: "20px",
-        backgroundColor: "#f4f4f4",
-        borderRadius: "8px",
-      }}
-    >
+    <div className="container-center" >
       <h1
         style={{
           fontSize: "2rem",
@@ -47,16 +34,9 @@ const LanguageConverter = () => {
       </p>
 
       <button
+        className="button-primary"
         onClick={languageConverter}
-        style={{
-          backgroundColor: "#007BFF",
-          color: "#fff",
-          border: "none",
-          padding: "10px 20px",
-          fontSize: "1rem",
-          cursor: "pointer",
-          borderRadius: "5px",
-        }}
+        
       >
         {currentLanguage === "English"
           ? "Switch to Spanish"

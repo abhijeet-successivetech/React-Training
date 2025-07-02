@@ -2,18 +2,11 @@
 import useTimer from "@/hooks/useTimer";
 
 export default function TimerPage() {
-  const { seconds, isRunning, start, pause, reset } = useTimer(10); // 10 second timer
+  const { seconds, isRunning, start, pause, reset } = useTimer(10);
 
   return (
-    <div
-      style={{
-        padding: 30,
-        textAlign: "center",
-        fontFamily: "sans-serif",
-        maxWidth: 400,
-        margin: "0 auto",
-      }}
-    >
+    <div className="container-center">
+
       <h1>Countdown Timer</h1>
       <h2 style={{ fontSize: 48, margin: "20px 0" }}>{seconds}s</h2>
 
