@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const withAuth = (Component) => (props) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const handleAuth = () => {
-    const user = "Dhuruv";
+    const user = "Abhijeet";
     localStorage.setItem(
       "authUser",
       JSON.stringify({ type: "Admin", userName: user })
