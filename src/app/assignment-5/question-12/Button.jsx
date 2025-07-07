@@ -2,20 +2,24 @@
 
 import React from "react";
 
-export const Button = (props) => {
-  const { buttonType, clickHandlers } = props;
+export const Button = ({ buttonType, onClick }) => {
+  const getBackground = () => {
+    if (buttonType === "Primary") return "blue";
+    if (buttonType === "Secondary") return "gray";
+    return "red";
+  };
 
   return (
     <button
-      onClick={clickHandlers.click}
+      onClick={onClick}
       style={{
-        background:
-          buttonType == "Primary"
-            ? "blue"
-            : buttonType == "Secondary"
-            ? "gray"
-            : "red",
+        backgroundColor: getBackground(),
         color: "white",
+        border: "none",
+        padding: "10px 20px",
+        borderRadius: "5px",
+        cursor: "pointer",
+        margin: "5px",
       }}
     >
       {buttonType}

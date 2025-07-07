@@ -4,7 +4,7 @@ const postsPerPage = 10;
 
 const PostPage = async ({ params }) => {
   const currentPage = parseInt(params.posts) || 1;
-console.log("currentPage", currentPage);
+  console.log("currentPage", currentPage);
 
   let allPosts = [];
 
@@ -15,30 +15,32 @@ console.log("currentPage", currentPage);
     }
     allPosts = await res.json();
   } catch (error) {
-    return <p>Please try again later.</p>;
+    return (
+      <div className="container-center">
+        <p style={{ color: "red" }}>Please try again later.</p>
+      </div>
+    );
   }
-  
+
   const totalPages = Math.ceil(allPosts.length / postsPerPage);
   const start = (currentPage - 1) * postsPerPage;
   const paginatedPosts = allPosts.slice(start, start + postsPerPage);
-  console.log(start);
-  console.log(paginatedPosts);
 
-  
   return (
     <div className="container-center">
-      <h1>Posts - page {currentPage}</h1>
-      <ul>
+      <h1 className="question">Posts - Page {currentPage}</h1>
+      <div className="flex" style={{ gap: "1rem" }}>
         {paginatedPosts.map((post) => (
-          <li key={post?.id}>
-            <p>Post : {post.id}</p>
-            <h2>Title : {post?.title}</h2>
-            <p>Body : {post?.body}</p>
-            <br />
-          </li>
+          <div className="card" key={post?.id}>
+            <p><strong>Post ID:</strong> {post.id}</p>
+            <h2 style={{ fontSize: "1.2rem", color: "#333" }}>
+              Title: {post?.title}
+            </h2>
+            <p>{post?.body}</p>
+          </div>
         ))}
-      </ul>
-      <Pagination totalPages={totalPages}/>
+      </div>
+      <Pagination totalPages={totalPages} />
     </div>
   );
 };

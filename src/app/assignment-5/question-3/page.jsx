@@ -29,7 +29,7 @@ export default async function UsersPageServer() {
         native fetch function and integrate this loading feedback seamlessly
         with the error handling and data display in your component.
       </p>
-      <UserList userData={users} error={error} />;
+      <UserList userData={users} error={error} />
     </div>
   );
 }

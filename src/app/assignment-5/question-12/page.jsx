@@ -2,10 +2,8 @@
 import { Button } from "./Button";
 
 const ButtonPage = () => {
-  const clickHandlers = {
-    click: () => {
-      console.log("Button is clicked");
-    }
+  const clickHandlers = () => {
+    console.log("Button is clicked");
   };
   return (
     <div className="container-center">
@@ -16,9 +14,9 @@ const ButtonPage = () => {
         sample Next.js application.
       </p>
       <h1>Reusable Button</h1>
-      <Button buttonType={"Primary"} clickHandlers={clickHandlers} />
-      <Button buttonType={"Secondary"} clickHandlers={clickHandlers} />
-      <Button buttonType={"Danger"} clickHandlers={clickHandlers} />
+      <Button buttonType={"Primary"} onClick={clickHandlers} />
+      <Button buttonType={"Secondary"} onClick={clickHandlers} />
+      <Button buttonType={"Danger"} onClick={clickHandlers} />
     </div>
   );
 };

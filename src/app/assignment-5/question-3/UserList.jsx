@@ -1,48 +1,62 @@
-// app/users/UsersPage.jsx (Client-side component)
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
+import CircularSize from "./Loading";
 
-const UserList = ({ userData, error }) => {
-  const [data, setData] = useState(userData);
-  const [localError, setLocalError] = useState(error);
+const UserData = ({ data: initialData }) => {
+  const [data, setData] = useState(initialData);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(!initialData);
 
   const handleRetry = async () => {
-    setLocalError(null);
+    setLoading(true);
+    setError(false);
     try {
       const res = await fetch("https://jsonplaceholder.typicode.com/users");
-      const data = await res.json();
-      setData(data);
-      setLocalError(null); 
+      if (!res.ok) throw new Error("Failed to fetch data");
+      const newData = await res.json();
+      setData(newData);
     } catch (err) {
-      setLocalError("Failed to load users. Please try again later.");
+      setError(true);
+    } finally {
+      setLoading(false);
     }
   };
 
+  if (error) {
+    return (
+      <div className="container-center">
+        {loading ? (
+          <CircularSize />
+        ) : (
+          <>
+            <p style={{ color: "pink" }}>Please Retry</p>
+            <button className="button-primary" onClick={handleRetry}>
+              Retry
+            </button>
+          </>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div className="container-center">
-      <h2>Users List</h2>
-      {localError && (
-        <div style={{ color: "red", marginBottom: "20px" }}>
-          <p>{localError}</p>
-          <button onClick={handleRetry}>Retry</button>
-        </div>
-      )}
-      <ul>
-        {data && data.length > 0 ? (
-          data.map((user) => (
-            <li key={user.id}>
-              <p>Id : {user.id}</p>
-              <p>Name : {user.name}</p>
-               <p>Email : {user.email}</p>
-               <br />
-            </li>
-          ))
-        ) : (
-          <li>No users found</li>
-        )}
-      </ul>
+      <h1 className="question">User Data</h1>
+      <div className="flex" style={{ gap: "1rem" }}>
+        {data?.map((item) => (
+          <div className="card" key={item.id}>
+            <p><strong>User ID:</strong> {item?.id}</p>
+            <p><strong>Name:</strong> {item?.name}</p>
+            <p><strong>Username:</strong> {item?.username}</p>
+            <p><strong>Address:</strong> {item?.address?.street}</p>
+            <p><strong>Phone:</strong> {item?.phone}</p>
+            <p><strong>Company:</strong> {item?.company?.name}</p>
+          </div>
+        ))}
+      </div>
     </div>
-  );
+  )
 };
-export default UserList;
+
+export default UserData;

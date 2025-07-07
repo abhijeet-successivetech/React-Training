@@ -1,4 +1,3 @@
-
 const getUserData = async () => {
   const response = await fetch(
     "https://jsonplaceholder.typicode.com/posts/1"
@@ -14,6 +13,7 @@ const ServerSideApi = async () => {
         the server side (SSR) from a public API (e.g., JSONPlaceholder) and
         displays the results on the page.
       </p>
+      <div className="container-center">
       {data && (
         <>
           <p>UserId : {data?.userId}</p>
@@ -21,6 +21,7 @@ const ServerSideApi = async () => {
           <p>Body : {data?.body}</p>
         </>
       )}
+      </div>
     </div>
   );
 };
