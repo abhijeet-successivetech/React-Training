@@ -3,15 +3,16 @@ import Link from "next/link";
 
 export default function DashboardLayout({ children }) {
   return (
-    <div>
+    <div style={{ display: "flex", minHeight: "100vh" }}>
       <nav
         style={{
           width: "300px",
           padding: "1rem",
-          borderRight: "1px solid #ccc",
+          borderRight: "1px solid",
+          backgroundColor: "#fff",
         }}
       >
-        <ul style={{ listStyle: "none", padding: 0 }}>
+        <ul>
           <li>
             <Link href="/assignment-3/question-5">Dashboard</Link>
           </li>

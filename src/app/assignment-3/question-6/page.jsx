@@ -4,24 +4,25 @@ const ProductPage = () => {
   const products = [
     {
       id: 1,
-      name: "redmi note 11",
+      name: "Smartphone Model A",
     },
     {
       id: 2,
-      name: "Samsung Galaxy Edge 50",
+      name: "Smartphone Model B",
     },
     {
       id: 3,
-      name: "Samsung TV",
+      name: "LED Television",
     },
     {
       id: 4,
-      name: "Dell lattitude E-7430",
+      name: "Business Laptop",
     },
   ];
+
   return (
-    <div className="flex">
-      <p className="question">
+    <div className="container-center">
+      <p className="question" style={{ maxWidth: "800px" }}>
         Q6. Create a list of items (e.g., products, articles) in your
         application. Implement dynamic routing to display details for each item
         when clicked. Create a route parameter that represents the item's ID in
@@ -29,11 +30,11 @@ const ProductPage = () => {
         parameter and display them on the detail page. Add a "Go Back" button on
         the detail page to return to the list.
       </p>
-      <div className="container-center">
-        {products.map((product, index) => (
-          <p key={index}>
+      <div className="flex" style={{ gap: "1rem" }}>
+        {products.map((product) => (
+          <p key={product.id}>
             <Link href={`/assignment-3/question-6/product/${product.id}`}>
-              <button>{product.name}</button>
+              <button className="button-primary">{product.name}</button>
             </Link>
           </p>
         ))}
@@ -41,5 +42,4 @@ const ProductPage = () => {
     </div>
   );
 };
-
 export default ProductPage;

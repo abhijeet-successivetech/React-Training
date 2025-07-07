@@ -14,7 +14,7 @@ const HomeAbout = () => {
       </p>
       <div className="container-center">
         <Link href={"/assignment-3/question-4/Login"}>
-          <button>Login</button>
+          <button className="button-primary">Login</button>
         </Link>
       </div>
     </div>
