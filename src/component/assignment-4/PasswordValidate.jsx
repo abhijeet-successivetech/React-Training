@@ -10,7 +10,7 @@ const PasswordValidate = () => {
     e.preventDefault();
 
     if (( password.length >= 8 ) &&
-      !["*", "&", "!", "@", "#"].some((op) => password.includes(op))) {
+      ["*", "&", "!", "@", "#"].some((op) => password.includes(op))) {
 
       console.log(`${userName} logged in successfully`);
 
