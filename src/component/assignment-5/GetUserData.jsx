@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import CircularSize from "./Loading";
+import CircularSize from "../../app/assignment-5/loading";
 
-const UserData = ({ data: initialData }) => {
+const GetUserData = ({ data: initialData }) => {
   const [data, setData] = useState(initialData);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(!initialData);
@@ -59,4 +59,4 @@ const UserData = ({ data: initialData }) => {
   )
 };
 
-export default UserData;
+export default GetUserData;

@@ -1,14 +1,15 @@
-"use client";
 import withDataFetching from "./withDataFetching";
 
-const FetchData = (props) => {
-  const { data } = props;
-
+const FetchData = ({ data = [] }) => {
   return (
     <>
-      {data.map((item) => (
-        <p key={item?.id}>UserName : {item?.name}</p>
-      ))}
+      {data.length === 0 ? (
+        <p>No data found</p>
+      ) : (
+        data.map((item) => (
+          <p key={item?.id}>UserName : {item?.name}</p>
+        ))
+      )}
     </>
   );
 };

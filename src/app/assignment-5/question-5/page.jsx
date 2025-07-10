@@ -1,7 +1,7 @@
 import axios from "axios";
 const getUserData = async () => {
   const response = await axios.get(
-    "https://jsonplaceholder.typicode.com/posts/1"
+    "https://jsonplaceholder.typicode.com/users"
   );
   return response.data;
 };
@@ -15,14 +15,22 @@ const ServerSideApi = async () => {
         the App Router conventions and perform the data fetching on the server
         side.
       </p>
-      {data && (
-        <>
-          <p>UserId : {data?.userId}</p>
-          <p>Title : {data?.title}</p>
-          <p>Body : {data?.body}</p>
-        </>
-      )}
-
+      <h1>User Details</h1>
+      {data.map((item, index) => (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.3rem",
+            margin: "0.5rem",
+          }}
+          key={item.id}
+        >
+          <p>UserId : {item?.id}</p>
+          <p>Name : {item?.name}</p>
+          <p>Email : {item?.email}</p>
+        </div>
+      ))}
     </div>
   );
 };

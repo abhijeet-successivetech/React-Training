@@ -1,5 +1,4 @@
-// app/users/page.jsx (Server-side component)
-import UserList from "./UserList";
+import GetUserData from "../../../component/assignment-5/GetUserData";
 
 export default async function UsersPageServer() {
   let users = [];
@@ -29,7 +28,7 @@ export default async function UsersPageServer() {
         native fetch function and integrate this loading feedback seamlessly
         with the error handling and data display in your component.
       </p>
-      <UserList userData={users} error={error} />
+      <GetUserData userData={users} error={error} />
     </div>
   );
 }

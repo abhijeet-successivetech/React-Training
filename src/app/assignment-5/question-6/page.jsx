@@ -3,12 +3,16 @@ import UserData from "./UserData";
 
 const getUserData = async () => {
   try {
-    const response = await axios.get("https://jsonplaceholder.typicode.com/posts/1");
+    const response = await axios.get("https://jsonplaceholder.typicode.com/users/1");
+    if(!response) {
+      throw new Error("Error getting in response");
+    }
     return response.data;
   } catch (error) {
     console.log("Server fetch error:", error);
     return null;
   }
+  
 };
 
 export default async function Page() {
