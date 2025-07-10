@@ -19,9 +19,9 @@ const Filter = () => {
     setSearchTerm(searchValue);
     
     if (searchValue === "") {
-      setitems(myitems);
+      setItems(myitems);
     } else {
-      setitems(myitems.filter((item) => item.toLowerCase().includes(searchValue.toLowerCase())));
+      setItems(myitems.filter((item) => item.toLowerCase().includes(searchValue.toLowerCase())));
     }
   };
 
