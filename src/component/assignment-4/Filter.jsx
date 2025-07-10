@@ -11,7 +11,7 @@ const Filter = () => {
     "White",
   ];
   
-  const [items, setitems] = useState(myitems);
+  const [items, setItems] = useState(myitems);
   const [searchTerm, setSearchTerm] = useState("");
 
   const changeHandler = (e) => {
