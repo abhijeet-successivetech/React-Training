@@ -1,36 +1,35 @@
 "use client";
 import React, { useState } from "react";
-import {Box,TextField,Button,Typography,Alert,} from "@mui/material";
+import { Box, TextField, Button, Typography, Alert } from "@mui/material";
 
 const FormValidation = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [errors, setErrors] = useState({});
-
-  const validate = () => {
-    const newErrors = {};
-
-    if (name.trim().length < 2) {
-      newErrors.name = "Name must be at least 2 characters long.";
-    }
-
-    if (!email.includes("@")) {
-      newErrors.email = "Enter a valid email address.";
-    }
-
-    setErrors(newErrors);
-
-    return Object.keys(newErrors).length === 0;
-  };
+  const [errors, setErrors] = useState({ name: "", email: "" });
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (validate()) {
+    const newErrors = { name: "", email: "" };
+    let valid = true;
+
+    if (name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters long.";
+      valid = false;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      newErrors.email = "Enter a valid email address.";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+
+    if (valid) {
       alert("Form submitted successfully!");
       setName("");
       setEmail("");
-      setErrors({});
+      setErrors({ name: "", email: "" });
     }
   };
 
@@ -58,7 +57,7 @@ const FormValidation = () => {
         value={name}
         onChange={(e) => setName(e.target.value)}
         error={!!errors.name}
-        helperText={errors.name || ""}
+        helperText={errors.name}
         variant="outlined"
         fullWidth
       />
@@ -68,12 +67,12 @@ const FormValidation = () => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         error={!!errors.email}
-        helperText={errors.email || ""}
+        helperText={errors.email}
         variant="outlined"
         fullWidth
       />
 
-      {Object.keys(errors).length > 0 && (
+      {(errors.name || errors.email) && (
         <Alert severity="error">Please fix the above errors</Alert>
       )}
 
