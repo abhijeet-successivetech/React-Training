@@ -1,23 +1,15 @@
 'use client';
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
-import {
-  AppBar,
-  Box,
-  Drawer,
-  IconButton,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Toolbar,
+import {AppBar, Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar,
   Typography,
   useTheme,
 } from '@mui/material';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import data from './data.json'; // Ensure it's data.json if importing as a JSON file
+import data from './data.json';
 
 const drawerWidth = 280;
 
@@ -89,7 +81,6 @@ export default function Sidebar({ children }) {
 
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh' }}>
-      {/* App Bar - Mobile */}
       <AppBar
         position="fixed"
         sx={{
@@ -114,12 +105,11 @@ export default function Sidebar({ children }) {
         </Toolbar>
       </AppBar>
 
-      {/* Sidebar Navigation */}
+
       <Box
         component="nav"
         sx={{ width: { md: drawerWidth }, flexShrink: { md: 0 } }}
       >
-        {/* Mobile Drawer */}
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -131,7 +121,6 @@ export default function Sidebar({ children }) {
           {drawer}
         </Drawer>
 
-        {/* Desktop Drawer */}
         <Drawer
           variant="permanent"
           sx={{
@@ -149,7 +138,6 @@ export default function Sidebar({ children }) {
         </Drawer>
       </Box>
 
-      {/* Main Content */}
       <Box
         component="main"
         sx={{

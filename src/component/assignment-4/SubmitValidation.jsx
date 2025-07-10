@@ -2,56 +2,40 @@
 import { Box, Button, TextField, Alert } from "@mui/material";
 import { useState } from "react";
 
-const SubmitValidation = () => {
+const SimpleFormValidation = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confPassword, setConfPassword] = useState("");
-  const [isPasswordWrong, setIsPasswordWrong] = useState(false);
-  const [isUserNameWrong, setIsUserNameWrong] = useState(false);
-  const [passwordMatch, setPasswordMatch] = useState(true);
   const [errorSummary, setErrorSummary] = useState([]);
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-   
-    setIsUserNameWrong(false);
-    setIsPasswordWrong(false);
-    setPasswordMatch(true);
-    setErrorSummary([]);
-
     const errors = [];
 
-   
     if (userName.trim().length < 2) {
-      setIsUserNameWrong(true);
       errors.push("Username must be at least 2 characters long.");
     }
 
-   
     if (
       password.length < 8 ||
       !["*", "&", "!", "@", "#"].some((op) => password.includes(op))
     ) {
-      setIsPasswordWrong(true);
       errors.push(
         "Password must be at least 8 characters and include one of *, &, !, @, #."
       );
     }
 
-   
     if (password !== confPassword) {
-      setPasswordMatch(false);
       errors.push("Passwords do not match.");
     }
 
-    
     if (errors.length > 0) {
       setErrorSummary(errors);
       return;
     }
 
-   
+    setErrorSummary([]);
     console.log(`${userName} logged in successfully`);
     alert("Form submitted successfully");
   };
@@ -59,13 +43,13 @@ const SubmitValidation = () => {
   return (
     <Box
       component="form"
-      display={"flex"}
-      flexDirection={"column"}
-      gap={"1rem"}
+      display="flex"
+      flexDirection="column"
+      gap="1rem"
+      maxWidth="400px"
+      margin="auto"
+      mt="50px"
       onSubmit={submitHandler}
-      maxWidth={"400px"}
-      margin={"auto"}
-      mt={"50px"}
     >
       {errorSummary.length > 0 && (
         <Alert severity="error">
@@ -78,35 +62,22 @@ const SubmitValidation = () => {
       )}
 
       <TextField
-        label="Name"
-        variant="outlined"
+        label="Username"
         value={userName}
-        error={isUserNameWrong}
-        helperText={isUserNameWrong ? "Enter a valid username" : ""}
         onChange={(e) => setUserName(e.target.value)}
       />
 
       <TextField
         label="Password"
         type="password"
-        variant="standard"
-        error={isPasswordWrong}
         value={password}
-        helperText={
-          isPasswordWrong
-            ? "Min. 8 characters (include *, &, !, @, #)"
-            : ""
-        }
         onChange={(e) => setPassword(e.target.value)}
       />
 
       <TextField
         label="Confirm Password"
-        variant="standard"
         type="password"
-        error={!passwordMatch}
         value={confPassword}
-        helperText={!passwordMatch ? "Passwords do not match" : ""}
         onChange={(e) => setConfPassword(e.target.value)}
       />
 
@@ -117,4 +88,4 @@ const SubmitValidation = () => {
   );
 };
 
-export default SubmitValidation;
+export default SimpleFormValidation;

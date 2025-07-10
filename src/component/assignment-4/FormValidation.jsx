@@ -1,80 +1,83 @@
 "use client";
-import { Box, Button, TextField } from "@mui/material";
-import { useState } from "react";
+import React, { useState } from "react";
+import {Box,TextField,Button,Typography,Alert,} from "@mui/material";
 
 const FormValidation = () => {
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [confPassword, setConfPassword] = useState("");
-  const [isPasswordWrong, setIsPasswordWrong] = useState(false);
-  const [isUserNameWrong,setIsUserNameWrong]=useState(false);
-  const [passwordMatch,setPasswordMatch]=useState(true);
-  const submitHandler = (e) => {
-    e.preventDefault();
-    setIsUserNameWrong(false);
-    setIsPasswordWrong(false);
-    setPasswordMatch(true);
-    if(userName.trim().length<2){
-      setIsUserNameWrong(true);
-      return;
-    }
-    if (
-      password.length < 8 ||
-      !["*", "&", "!", "@", "#"].some((op) => password.includes(op))
-    ) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [errors, setErrors] = useState({});
 
-      setIsPasswordWrong(true);
-      return;
+  const validate = () => {
+    const newErrors = {};
+
+    if (name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters long.";
     }
 
-    if(password!==confPassword){
-      setPasswordMatch(false);
-      return;
+    if (!email.includes("@")) {
+      newErrors.email = "Enter a valid email address.";
     }
-    console.log(`${userName} logged in successfully`);
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (validate()) {
+      alert("Form submitted successfully!");
+      setName("");
+      setEmail("");
+      setErrors({});
+    }
+  };
+
   return (
     <Box
       component="form"
-      display={"flex"}
-      flexDirection={"column"}
-      gap={"1rem"}
-      onSubmit={submitHandler}
+      onSubmit={handleSubmit}
+      sx={{
+        maxWidth: 400,
+        mx: "auto",
+        mt: 4,
+        p: 3,
+        border: "1px solid #ccc",
+        borderRadius: "8px",
+        boxShadow: 2,
+        display: "flex",
+        flexDirection: "column",
+        gap: 2,
+      }}
     >
+      <Typography variant="h6">Simple Validation Form</Typography>
+
       <TextField
         label="Name"
-        varient="outlined"
-        value={userName}
-        error={isUserNameWrong}
-        helperText={!userName ? "Enter username" : ""}
-        onChange={(e) => setUserName(e.target.value)}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        error={!!errors.name}
+        helperText={errors.name || ""}
+        variant="outlined"
+        fullWidth
       />
+
       <TextField
-        label="Password"
-        type="password"
-        varient="standard"
-        error={isPasswordWrong}
-        value={password}
-        helperText={
-          (password.length < 8 ||
-            !["*", "&", "!", "@", "#"].some((op) => password.includes(op))) &&
-          "Min. 8 characters (include *,&,!,@,#)"
-        }
-        onChange={(e) => setPassword(e.target.value)}
+        label="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        error={!!errors.email}
+        helperText={errors.email || ""}
+        variant="outlined"
+        fullWidth
       />
-      <TextField
-        label="Confirm Password"
-        varient="standard"
-        type="password"
-        error={!passwordMatch}
-        value={confPassword}
-        helperText={password != confPassword && "Password do not match"}
-        onChange={(e) => setConfPassword(e.target.value)}
-      />
-      <Button
-       
-        type="submit"
-      >
+
+      {Object.keys(errors).length > 0 && (
+        <Alert severity="error">Please fix the above errors</Alert>
+      )}
+
+      <Button type="submit" variant="contained" color="primary">
         Submit
       </Button>
     </Box>

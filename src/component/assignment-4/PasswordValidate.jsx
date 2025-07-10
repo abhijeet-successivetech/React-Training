@@ -8,10 +8,14 @@ const PasswordValidate = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (password == confPassword && password != "" && confPassword != "") {
+
+    if (( password.length >= 8 ) &&
+      !["*", "&", "!", "@", "#"].some((op) => password.includes(op))) {
+
       console.log(`${userName} logged in successfully`);
+
     } else {
-      console.log("password do not match");
+      alert("Enter valid password");
     }
   };
   return (
@@ -44,7 +48,7 @@ const PasswordValidate = () => {
           onChange={(e) => setConfPassword(e.target.value)}
         />
       </label>{" "}
-      <button className="button-primary" disabled={password != confPassword} type="submit">
+      <button  disabled={password !== confPassword} type="submit">
         Submit
       </button>
     </form>

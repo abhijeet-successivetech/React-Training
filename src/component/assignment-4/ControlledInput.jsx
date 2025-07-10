@@ -15,7 +15,7 @@ const ControlledInput = () => {
   const [inputValue, setInputValue] = useState("");
   const [showMessage, setShowMessage] = useState(false);
 
-  function handleCheck() {
+  const handleCheck = () => {
     if (inputValue === "show") {
       setShowMessage(true);
     } else {

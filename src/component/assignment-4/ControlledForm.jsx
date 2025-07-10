@@ -6,41 +6,49 @@ const ControlledForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     gender: "",
-    english: false,
-    maths: false,
-    hindi: false,
-    science: false,
+    subjects: [], 
   });
 
+  const [subjectInput, setSubjectInput] = useState(""); 
+
   const changeHandler = (e) => {
-    const { name, value, checked, type } = e.target;
+    const { name, value } = e.target;
+
     setFormData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: value,
     }));
+  };
+
+  const addSubjectHandler = () => {
+    if (subjectInput && !formData.subjects.includes(subjectInput)) {
+      setFormData((prev) => ({
+        ...prev,
+        subjects: [...prev.subjects, subjectInput],
+      }));
+      setSubjectInput("");
+    }
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(formData);
-    alert("form submitted")
+    alert("form submitted");
   };
 
   return (
     <form onSubmit={submitHandler}>
-      
       <label>
-
         Name :{" "}
         <input
           type="text"
-          id="name"
           name="name"
           onChange={changeHandler}
           value={formData.name}
         />
       </label>
-      <div style={{ display: "flex",gap:"1rem"}}>
+
+      <div style={{ display: "flex", gap: "1rem" }}>
         <div>Gender : </div>
 
         <label>
@@ -76,49 +84,31 @@ const ControlledForm = () => {
           Other
         </label>
       </div>
-      <div style={{ display: "flex",gap:"1rem" }}>
-        <div>Subjects : </div>
 
-        <label>
-          <input
-            type="checkbox"
-            name="english"
-            checked={formData.english}
-            onChange={changeHandler}
-          />
-          English
-        </label>
-
-        <label>
-          <input
-            type="checkbox"
-            name="maths"
-            checked={formData.maths}
-            onChange={changeHandler}
-          />
-          Maths
-        </label>
-
-        <label>
-          <input
-            type="checkbox"
-            name="science"
-            checked={formData.science}
-            onChange={changeHandler}
-          />
-          Science
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="hindi"
-            checked={formData.hindi}
-            onChange={changeHandler}
-          />
-          Hindi
-        </label>
+      <div style={{ marginTop: "1rem" }}>
+        <div>Add Subject:</div>
+        <input
+          type="text"
+          value={subjectInput}
+          onChange={(e) => setSubjectInput(e.target.value)}
+        />
+        <button type="button" onClick={addSubjectHandler}>
+          Add
+        </button>
       </div>
-      <button className="button-primary" type="submit" >Submit</button>
+
+      <div style={{ marginTop: "1rem" }}>
+        <div>Subjects :</div>
+        <ul>
+          {formData.subjects.map((subject, index) => (
+            <li key={index}>{subject}</li>
+          ))}
+        </ul>
+      </div>
+
+      <button className="button-primary" type="submit">
+        Submit
+      </button>
     </form>
   );
 };

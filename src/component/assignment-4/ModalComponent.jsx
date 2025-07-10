@@ -1,9 +1,6 @@
 "use client";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-import { TextField } from "@mui/material";
+import {Box, Button, Modal, TextField, Typography,} from "@mui/material";
+
 import { useState } from "react";
 
 const ModalComponent = () => {
@@ -36,23 +33,32 @@ const ModalComponent = () => {
     transform: "translate(-50%, -50%)",
     width: 400,
     bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
+    borderRadius: "8px",
+    boxShadow: 8,
     p: 4,
   };
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
-    <div className="container-center">
+    <div className="container-center" style={{ textAlign: "center", marginTop: "20px" }}>
       {show && (
-        <>
-          <Typography>Name {formData.name}</Typography>
-          <Typography>Age {formData.age}</Typography>
-          <Typography>Address {formData.address}</Typography>
-        </>
+        <Box sx={{ mb: 2 }}>
+          <Typography variant="subtitle1" sx={{ mb: 1 }}>
+            Name: {formData.name}
+          </Typography>
+          <Typography variant="subtitle1" sx={{ mb: 1 }}>
+            Age: {formData.age}
+          </Typography>
+          <Typography variant="subtitle1" sx={{ mb: 1 }}>
+            Address: {formData.address}
+          </Typography>
+        </Box>
       )}
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button variant="contained" onClick={handleOpen}>
+        Open Modal
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -60,36 +66,58 @@ const ModalComponent = () => {
         aria-describedby="modal-modal-description"
       >
         <Box onSubmit={submitHandler} component={"form"} sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+          <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ mb: 2 }}>
+            Enter Details
           </Typography>
+
           <TextField
             type="text"
             label="Name"
             name="name"
             value={formData.name}
             onChange={changeHandler}
+            fullWidth
+            variant="outlined"
+            sx={{ mb: 2 }}
           />
+
           <TextField
             type="number"
             label="Age"
-            error={formData.age < 0 && "Age cannot be negative"}
-            helperText={formData.age < 0 && "Age cannot be negative"}
+            error={formData.age < 0}
+            helperText={formData.age < 0 ? "Age cannot be negative" : ""}
             name="age"
             value={formData.age}
             onChange={changeHandler}
+            fullWidth
+            variant="outlined"
+            sx={{ mb: 2 }}
           />
+
           <TextField
             type="text"
             label="Address"
             name="address"
             value={formData.address}
             onChange={changeHandler}
+            fullWidth
+            variant="outlined"
+            sx={{ mb: 2 }}
           />
-          <Button type="submit"> Submit</Button>
+
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+            sx={{ mt: 1, borderRadius: "4px", textTransform: "none" }}
+          >
+            Submit
+          </Button>
         </Box>
       </Modal>
     </div>
   );
-}
+};
+
 export default ModalComponent;

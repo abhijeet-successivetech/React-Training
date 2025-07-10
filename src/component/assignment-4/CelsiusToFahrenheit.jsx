@@ -16,14 +16,11 @@ const CelsiusToFahrenheit = () => {
   return (
     <div className="container-center">
       <label htmlFor="">
-        {" "}
-        Celsius:{" "} 
+        Celsius:
         <input type="number" value={celsius} onChange={celsiusHandler} />
       </label>
-
       <label htmlFor="">
-        {" "}
-        Fahrenheit:{" "}
+        Fahrenheit:
         <input type="number" value={fahrenheit} onChange={fahrenheitHandler} />
       </label>
     </div>
