@@ -1,5 +1,5 @@
 "use client";
-import withLogger from "./withLogger";
+import withLogger from "../../hoc/withLogger";
 
 const LoggerComponent = () => {
   <>This is a logger component</>;

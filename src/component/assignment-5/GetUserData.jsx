@@ -1,62 +1,46 @@
 "use client";
-
 import React, { useState } from "react";
-import CircularSize from "../../app/assignment-5/loading";
+import { getUserData } from "@/app/assignment-5/question-3/page";
+import { CircularProgress, Stack } from "@mui/material";
 
-const GetUserData = ({ data: initialData }) => {
-  const [data, setData] = useState(initialData);
+const GetUserData = ({ data }) => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(!initialData);
-
   const handleRetry = async () => {
     setLoading(true);
-    setError(false);
-    try {
-      const res = await fetch("https://jsonplaceholder.typicode.com/users");
-      if (!res.ok) throw new Error("Failed to fetch data");
-      const newData = await res.json();
-      setData(newData);
-    } catch (err) {
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
+    await getUserData();
+    setLoading(false);
   };
 
-  if (error) {
+  if (!data) {
     return (
-      <div className="container-center">
+      <>
         {loading ? (
-          <CircularSize />
+          <Stack spacing={2} direction="row" alignItems="center">
+            <CircularProgress size="3rem" />
+          </Stack>
         ) : (
-          <>
-            <p style={{ color: "pink" }}>Please Retry</p>
-            <button className="button-primary" onClick={handleRetry}>
-              Retry
-            </button>
-          </>
+          <div className="container-center">
+            <p style={{ color: "red" }}>Failed to load data. Please retry.</p>
+            <button onClick={handleRetry}>Retry</button>
+          </div>
         )}
+      </>
+    );
+  } else {
+    return (
+      <div className="card">
+        <p>
+          <strong>UserId:</strong> {data?.id}
+        </p>
+        <p>
+          <strong>Name:</strong> {data?.name}
+        </p>
+        <p>
+          <strong>Email:</strong> {data?.email}
+        </p>
       </div>
     );
   }
-
-  return (
-    <div className="container-center">
-      <h1 className="question">User Data</h1>
-      <div className="flex" style={{ gap: "1rem" }}>
-        {data?.map((item) => (
-          <div className="card" key={item.id}>
-            <p><strong>User ID:</strong> {item?.id}</p>
-            <p><strong>Name:</strong> {item?.name}</p>
-            <p><strong>Username:</strong> {item?.username}</p>
-            <p><strong>Address:</strong> {item?.address?.street}</p>
-            <p><strong>Phone:</strong> {item?.phone}</p>
-            <p><strong>Company:</strong> {item?.company?.name}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
 };
 
 export default GetUserData;

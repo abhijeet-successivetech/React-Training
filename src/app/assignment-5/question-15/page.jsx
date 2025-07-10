@@ -1,4 +1,4 @@
-import LoggerComponent from "./LoggerComponent";
+import LoggerComponent from "../../../component/assignment-5/LoggerComponent";
 
 const LoggerPage = () => {
   return (
@@ -10,7 +10,7 @@ const LoggerPage = () => {
         Apply this HOC to a component and ensure the logs appear in the browser
         console.
       </p>
-      <LoggerComponent/>
+      <LoggerComponent />
     </div>
   );
 };

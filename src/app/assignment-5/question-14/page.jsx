@@ -1,4 +1,4 @@
-import ProtectedComponent from "@/app/assignment-5/question-14/ProtectedComponent";
+import ProtectedComponent from "@/component/assignment-5/ProtectedComponent";
 
 const ProtectedPage = () => {
   return (
@@ -10,7 +10,7 @@ const ProtectedPage = () => {
         Next.js application.
       </p>
 
-      <ProtectedComponent></ProtectedComponent>
+      <ProtectedComponent ></ProtectedComponent>
     </div>
   );
 };

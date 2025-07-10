@@ -1,29 +1,17 @@
 "use client";
 import React, { useState } from "react";
-import axios from "axios";
+import { getUserData } from "../../app/assignment-5/question-6/page";
 
-const UserData = ({ data: initialData }) => {
-  const [data, setData] = useState(initialData?initialData:[]);
+const UserData = ({ data }) => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(!initialData);
   
   const handleRetry = async () => {
     setLoading(true);
-    setError(false);
-    try {
-      const response = await axios.get("https://jsonplaceholder.typicode.com/users/1");
-      console.log("response",response);
-      
-      setData(response?.data);
-    } catch (err) {
-      console.log("Client fetch error:", err);
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
+    await getUserData();
+    setLoading(false)
   };
 
-  if (error) {
+  if (!data || data.length===0) {
     return (
       <div className="container-center">
         <p style={{ color: "red" }}>Failed to load data. Please retry.</p>
@@ -33,7 +21,8 @@ const UserData = ({ data: initialData }) => {
       </div>
     );
   }
-
+  else
+{
   return (
     <div className="card">
 
@@ -41,7 +30,7 @@ const UserData = ({ data: initialData }) => {
       <p><strong>Name:</strong> {data?.name}</p>
       <p><strong>Email:</strong> {data?.email}</p>
     </div>
-  );
+  );}
 };
 
 export default UserData;

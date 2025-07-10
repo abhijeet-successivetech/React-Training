@@ -1,5 +1,5 @@
 import axios from "axios";
-import FetchData from "./FetchData";
+import FetchData from "../../../component/assignment-5/FetchData";
 
 const FetchDataPage = async () => {
   let data = [];

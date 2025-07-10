@@ -2,11 +2,11 @@
 
 import React from "react";
 
-export const Button = ({ buttonType, onClick }) => {
+export const Button = ({ variant, label, onClick }) => {
   const getBackground = () => {
-    if (buttonType === "Primary") return "blue";
-    if (buttonType === "Secondary") return "gray";
-    return "red";
+    if (variant === "Primary") return "blue";
+    if (variant === "Secondary") return "gray";
+    return "red"; // Danger or default
   };
 
   return (
@@ -22,7 +22,7 @@ export const Button = ({ buttonType, onClick }) => {
         margin: "5px",
       }}
     >
-      {buttonType}
+      {label}
     </button>
   );
 };

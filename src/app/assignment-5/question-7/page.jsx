@@ -1,5 +1,5 @@
 import React from "react";
-import PostForm from "./PostForm";
+import PostForm from "@/component/assignment-5/PostForm";
 
 export default function CreatePostPage() {
   return (
