@@ -6,7 +6,7 @@ export const Button = ({ variant, label, onClick }) => {
   const getBackground = () => {
     if (variant === "Primary") return "blue";
     if (variant === "Secondary") return "gray";
-    return "red"; // Danger or default
+    return "red"; 
   };
 
   return (
