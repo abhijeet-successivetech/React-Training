@@ -4,34 +4,37 @@ import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TablePagination, TableSortLabel
 } from '@mui/material';
 
-function createData(name, age, weight, city) {
-  return { name, age, weight, city };
+function createData(name, gender, degree, city) {
+  return { name, gender, degree, city };
 }
 
 const rows = [
-  createData('Aman', 21, 48, 'Delhi'),
-  createData('Rahul', 22, 51, 'Noida'),
-  createData('Sumit', 20, 66, 'Delhi'),
-  createData('Abhishek', 30, 67, 'Noida'),
-  createData('Vikas', 25, 70, 'Gurgaon'),
-  createData('Rohit', 28, 68, 'Mumbai'),
-  createData('Deepak', 27, 75, 'Chennai'),
+  createData('Aman', 'M', 'B.tech', 'Delhi'),
+  createData('Satakshi', 'F', 'B.tech', 'Noida'),
+  createData('Sumit', 'M', 'MCA', 'Delhi'),
+  createData('Abhishek', 'M', 'BCA', 'Noida'),
+  createData('Vikas', 'M', 'MCA', 'Gurgaon'),
+  createData('Rohit', 'M', 'M.tech', 'Mumbai'),
+  createData('Deepak', 'M', 'M.tech', 'Chennai'),
+  createData('Jeeva', 'M', 'M.tech', 'Pune'),
+  createData('Raj', 'M', 'B.tech', 'Pune'),
 ];
 
 const descComparator = (a, b, orderBy) => {
-  if (b[orderBy] < a[orderBy]) {
+  const aValue = a[orderBy].toLowerCase();
+  const bValue = b[orderBy].toLowerCase();
+
+  if (bValue < aValue) {
     return -1;
   }
-  if (b[orderBy] > a[orderBy]) {
+  if (bValue > aValue) {
     return 1;
   }
   return 0;
 }
 
 const  getComparator = (order, orderBy) => {
-  return order === 'desc'
-    ? (a, b) => descComparator(a, b, orderBy)
-    : (a, b) => -descComparator(a, b, orderBy);
+  return order === 'desc' ? (a, b) => descComparator(a, b, orderBy): (a, b) => -descComparator(a, b, orderBy);
 }
 
 export default function TableComponent() {
@@ -40,16 +43,16 @@ export default function TableComponent() {
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('name');
 
-  const handleChangePage = (event, newPage) => {
+  const handleChangePage= (event, newPage) => {
     setPage(newPage);
   };
 
-  const handleChangeRowsPerPage = (event) => {
+  const handleChangeRows = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
 
-  const handleRequestSort = (property) => {
+  const handleSort = (property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
@@ -63,41 +66,42 @@ export default function TableComponent() {
   return (
     <Paper sx={{ width: '80%', margin: 'auto', mt: 4 }}>
       <TableContainer>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table sx={{ minWidth: 600 }} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell>
                 <TableSortLabel
                   active={orderBy === 'name'}
                   direction={orderBy === 'name' ? order : 'asc'}
-                  onClick={() => handleRequestSort('name')}
+                  onClick={() => handleSort('name')}
                 >
                   Name
                 </TableSortLabel>
               </TableCell>
               <TableCell align="right">
                 <TableSortLabel
-                  active={orderBy === 'age'}
-                  direction={orderBy === 'age' ? order : 'asc'}
-                  onClick={() => handleRequestSort('age')}
+                  active={orderBy === 'gender'}
+                  direction={orderBy === 'gender' ? order : 'asc'}
+                  onClick={() => handleSort('gender')}
+                  aria-label="Sort by gender"
                 >
-                  Age
+                  Gender
                 </TableSortLabel>
               </TableCell>
               <TableCell align="right">
                 <TableSortLabel
-                  active={orderBy === 'weight'}
-                  direction={orderBy === 'weight' ? order : 'asc'}
-                  onClick={() => handleRequestSort('weight')}
+                  active={orderBy === 'degree'}
+                  direction={orderBy === 'degree' ? order : 'asc'}
+                  onClick={() => handleSort('degree')}
                 >
-                  Weight
+                  Degree
                 </TableSortLabel>
               </TableCell>
               <TableCell align="right">
                 <TableSortLabel
                   active={orderBy === 'city'}
                   direction={orderBy === 'city' ? order : 'asc'}
-                  onClick={() => handleRequestSort('city')}
+                  onClick={() => handleSort('city')}
                 >
                   City
                 </TableSortLabel>
@@ -113,8 +117,8 @@ export default function TableComponent() {
                 <TableCell component="th" scope="row">
                   {row.name}
                 </TableCell>
-                <TableCell align="right">{row.age}</TableCell>
-                <TableCell align="right">{row.weight}</TableCell>
+                <TableCell align="right">{row.gender}</TableCell>
+                <TableCell align="right">{row.degree}</TableCell>
                 <TableCell align="right">{row.city}</TableCell>
               </TableRow>
             ))}
@@ -129,7 +133,7 @@ export default function TableComponent() {
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
+        onRowsPerPageChange={handleChangeRows}
       />
     </Paper>
   );
