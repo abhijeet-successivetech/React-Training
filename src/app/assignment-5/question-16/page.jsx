@@ -1,16 +1,12 @@
-import axios from "axios";
-import FetchData from "../../../component/assignment-5/FetchData";
+import withDataFetching from "@/hoc/withDataFetching";
+import FetchData from "@/component/assignment-5/FetchData";
 
-const FetchDataPage = async () => {
-  let data = [];
+const url = "https://jsonplaceholder.typicode.com/users";
 
-  try {
-    const response = await axios.get("https://jsonplaceholder.typicode.com/users");
-    data = response.data;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
 
+const FetchDataWithHOC = withDataFetching(FetchData, url);
+
+const FetchDataPage = () => {
   return (
     <div className="container-center">
       <p className="question">
@@ -19,7 +15,7 @@ const FetchDataPage = async () => {
         data should then be passed as props to a Client Component wrapped by the
         HOC, which displays the data.
       </p>
-      <FetchData data={data} />
+      <FetchDataWithHOC />
     </div>
   );
 };

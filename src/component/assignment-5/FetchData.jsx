@@ -1,15 +1,22 @@
 "use client";
-import React from "react";
 
-const FetchData = ({ data = [] }) => {
+import React, { useState, useEffect } from "react";
+
+const FetchData = ({ data }) => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    setUsers(data);
+  }, [data]);
+
   return (
     <div>
       <h3>Fetched Data:</h3>
-      {data.length === 0 ? (
+      {users.length === 0 ? (
         <p>No data found</p>
       ) : (
         <ul>
-          {data.map((item) => (
+          {users.map((item) => (
             <li key={item.id}>
               ID: {item.id}, Name: {item.name}
             </li>
@@ -19,4 +26,5 @@ const FetchData = ({ data = [] }) => {
     </div>
   );
 };
+
 export default FetchData;
