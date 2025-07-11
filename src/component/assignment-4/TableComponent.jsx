@@ -1,6 +1,7 @@
 'use client'
 import * as React from 'react';
-import {Table,TableBody,TableCell,TableContainer,TableHead,TableRow,Paper,TablePagination,
+import {
+  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TablePagination, TableSortLabel
 } from '@mui/material';
 
 function createData(name, age, weight, city) {
@@ -17,9 +18,27 @@ const rows = [
   createData('Deepak', 27, 75, 'Chennai'),
 ];
 
+function descendingComparator(a, b, orderBy) {
+  if (b[orderBy] < a[orderBy]) {
+    return -1;
+  }
+  if (b[orderBy] > a[orderBy]) {
+    return 1;
+  }
+  return 0;
+}
+
+function getComparator(order, orderBy) {
+  return order === 'desc'
+    ? (a, b) => descendingComparator(a, b, orderBy)
+    : (a, b) => -descendingComparator(a, b, orderBy);
+}
+
 export default function TableComponent() {
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(3); 
+  const [rowsPerPage, setRowsPerPage] = React.useState(3);
+  const [order, setOrder] = React.useState('asc');
+  const [orderBy, setOrderBy] = React.useState('name');
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -30,8 +49,16 @@ export default function TableComponent() {
     setPage(0);
   };
 
+  const handleRequestSort = (property) => {
+    const isAsc = orderBy === property && order === 'asc';
+    setOrder(isAsc ? 'desc' : 'asc');
+    setOrderBy(property);
+  };
 
-  const paginatedRows = rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
+ 
+  const sortedRows = rows.slice().sort(getComparator(order, orderBy));
+
+  const paginatedRows = sortedRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
   return (
     <Paper sx={{ width: '80%', margin: 'auto', mt: 4 }}>
@@ -39,10 +66,42 @@ export default function TableComponent() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell align="right">Age</TableCell>
-              <TableCell align="right">Weight</TableCell>
-              <TableCell align="right">City</TableCell>
+              <TableCell>
+                <TableSortLabel
+                  active={orderBy === 'name'}
+                  direction={orderBy === 'name' ? order : 'asc'}
+                  onClick={() => handleRequestSort('name')}
+                >
+                  Name
+                </TableSortLabel>
+              </TableCell>
+              <TableCell align="right">
+                <TableSortLabel
+                  active={orderBy === 'age'}
+                  direction={orderBy === 'age' ? order : 'asc'}
+                  onClick={() => handleRequestSort('age')}
+                >
+                  Age
+                </TableSortLabel>
+              </TableCell>
+              <TableCell align="right">
+                <TableSortLabel
+                  active={orderBy === 'weight'}
+                  direction={orderBy === 'weight' ? order : 'asc'}
+                  onClick={() => handleRequestSort('weight')}
+                >
+                  Weight
+                </TableSortLabel>
+              </TableCell>
+              <TableCell align="right">
+                <TableSortLabel
+                  active={orderBy === 'city'}
+                  direction={orderBy === 'city' ? order : 'asc'}
+                  onClick={() => handleRequestSort('city')}
+                >
+                  City
+                </TableSortLabel>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
