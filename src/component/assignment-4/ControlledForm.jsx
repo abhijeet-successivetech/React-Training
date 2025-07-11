@@ -6,11 +6,10 @@ const ControlledForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     gender: "",
-    subjects: [], 
+    subjects: []
   });
 
-  const [subjectInput, setSubjectInput] = useState(""); 
-  const [subjectsList, setSubjectsList] = useState([]); 
+  const subjectList = [ "Physics", "Chemistry", "Math", "English"];
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
@@ -19,13 +18,6 @@ const ControlledForm = () => {
       ...prev,
       [name]: value,
     }));
-  };
-
-  const addSubjectHandler = () => {
-    if (subjectInput && !subjectsList.includes(subjectInput)) {
-      setSubjectsList((prev) => [...prev, subjectInput]);
-      setSubjectInput("");
-    }
   };
 
   const checkboxChangeHandler = (e) => {
@@ -52,7 +44,7 @@ const ControlledForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(formData);
-    alert("Form submitted. Check console for data.");
+    alert("form submitted and logged into console");
   };
 
   return (
@@ -67,7 +59,7 @@ const ControlledForm = () => {
         />
       </label>
 
-      <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
+      <div style={{ display: "flex", gap: "1rem" }}>
         <div>Gender : </div>
 
         <label>
@@ -104,42 +96,19 @@ const ControlledForm = () => {
         </label>
       </div>
 
-      <div style={{ marginTop: "1rem" }}>
-        <div>Add Subject:</div>
-        <input
-          type="text"
-          value={subjectInput}
-          onChange={(e) => setSubjectInput(e.target.value)}
-        />
-        <button type="button" onClick={addSubjectHandler}>
-          Add
-        </button>
-      </div>
-
-      {subjectsList.length > 0 && (
-        <div style={{ marginTop: "1rem" }}>
-          <div>Select Subjects:</div>
-          {subjectsList.map((subject, index) => (
-            <label key={index} style={{ display: "block" }}>
-              <input
-                type="checkbox"
-                value={subject}
-                checked={formData.subjects.includes(subject)}
-                onChange={checkboxChangeHandler}
-              />
-              {subject}
-            </label>
-          ))}
-        </div>
-      )}
-
-      <div style={{ marginTop: "1rem" }}>
-        <div>Selected Subjects :</div>
-        <ul>
-          {formData.subjects.map((subject, index) => (
-            <li key={index}>{subject}</li>
-          ))}
-        </ul>
+      <div style={{ marginTop: "1rem", display: "flex", flexDirection: "column" }}>
+        <div>Choose Subjects :</div>
+        {subjectList.map((subject) => (
+          <label key={subject} style={{ display: "block" }}>
+            <input
+              type="checkbox"
+              value={subject}
+              checked={formData.subjects.includes(subject)}
+              onChange={checkboxChangeHandler}
+            />
+            {subject}
+          </label>
+        ))}
       </div>
 
       <button className="button-primary" type="submit" style={{ marginTop: "1rem" }}>

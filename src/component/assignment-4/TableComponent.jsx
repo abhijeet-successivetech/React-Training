@@ -1,5 +1,5 @@
 'use client'
-import * as React from 'react';
+import { useState } from 'react';
 import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TablePagination, TableSortLabel
 } from '@mui/material';
@@ -18,7 +18,7 @@ const rows = [
   createData('Deepak', 27, 75, 'Chennai'),
 ];
 
-function descendingComparator(a, b, orderBy) {
+const descComparator = (a, b, orderBy) => {
   if (b[orderBy] < a[orderBy]) {
     return -1;
   }
@@ -28,17 +28,17 @@ function descendingComparator(a, b, orderBy) {
   return 0;
 }
 
-function getComparator(order, orderBy) {
+const  getComparator = (order, orderBy) => {
   return order === 'desc'
-    ? (a, b) => descendingComparator(a, b, orderBy)
-    : (a, b) => -descendingComparator(a, b, orderBy);
+    ? (a, b) => descComparator(a, b, orderBy)
+    : (a, b) => -descComparator(a, b, orderBy);
 }
 
 export default function TableComponent() {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(3);
-  const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('name');
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(3);
+  const [order, setOrder] = useState('asc');
+  const [orderBy, setOrderBy] = useState('name');
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
