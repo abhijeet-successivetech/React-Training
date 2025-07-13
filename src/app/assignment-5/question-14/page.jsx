@@ -1,0 +1,17 @@
+import ProtectedComponent from "@/component/assignment-5/ProtectedComponent";
+
+const ProtectedPage = () => {
+  return (
+    <div className="container-center">
+      <p>
+        Q14. Create a higher-order component (HOC) named withAuth that restricts
+        access to a component only to authenticated users. Implement this HOC on
+        a sample component and demonstrate how it protects routes or pages in a
+        Next.js application.
+      </p>
+
+      <ProtectedComponent ></ProtectedComponent>
+    </div>
+  );
+};
+export default ProtectedPage;

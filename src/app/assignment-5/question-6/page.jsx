@@ -1,0 +1,37 @@
+import axios from "axios";
+import UserData from "../../../component/assignment-5/UserData";
+
+export const getUserData = async () => {
+  try {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/users/1"
+    );
+    if (!response) {
+      throw new Error("Error getting in response");
+    }
+    return response.data;
+  } catch (error) {
+    console.log("Server fetch error:", error);
+  }
+};
+
+export default async function Page() {
+  try {
+    const data = await getUserData();
+
+    return (
+      <div className="container-center">
+        <p className="question">
+          Q6. Modify your previous Next.js Server Component that fetches data
+          with Axios to include error handling. If the request fails, display an
+          error message and provide a retry button so the user can attempt
+          fetching the data again. Implement the retry logic in a Client
+          Component to handle user interaction.
+        </p>
+        <UserData data={data} />
+      </div>
+    );
+  } catch (error) {
+    console.log(error);
+  }
+}
