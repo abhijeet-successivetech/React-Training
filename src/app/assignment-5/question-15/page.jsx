@@ -1,0 +1,17 @@
+import LoggerComponent from "../../../component/assignment-5/LoggerComponent";
+
+const LoggerPage = () => {
+  return (
+    <div className="container-center">
+      <p className="question">
+        {" "}
+        Q15. Build a higher-order component (HOC) named withLogger that logs
+        component lifecycle events like mounting, unmounting, and updating.
+        Apply this HOC to a component and ensure the logs appear in the browser
+        console.
+      </p>
+      <LoggerComponent />
+    </div>
+  );
+};
+export default LoggerPage;
