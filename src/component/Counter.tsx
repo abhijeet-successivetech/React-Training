@@ -4,11 +4,11 @@ import React, { useState } from "react";
 const Counter: React.FC = () => {
   const [state, setState] = useState<number>(0);
 
-  function handleIncrement() {
+  function handleIncrement(): void {
     setState(state + 1);
   }
 
-  function handleDecrement() {
+  function handleDecrement(): void {
     setState(state - 1);
   }
 

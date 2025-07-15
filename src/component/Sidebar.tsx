@@ -7,11 +7,21 @@ import {
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
+
+
+interface SidebarProps extends PropsWithChildren {
+  title: string;
+  data: {
+    url: string;
+    name: string;
+  }[]
+}
+
 
 const drawerWidth = 280;
 
-export default function Sidebar({ children, title, data }) {
+const Sidebar: React.FC<SidebarProps> = ({ children, title, data }) => {
   const theme = useTheme();
   const pathname = usePathname();
 
@@ -91,3 +101,4 @@ export default function Sidebar({ children, title, data }) {
     </Box>
   );
 }
+export default Sidebar;

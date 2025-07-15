@@ -1,7 +1,11 @@
 import UserCard from "@/component/assignment-1/UserCard";
 
 const CardPage = () => {
-  const users = [
+  const users: Array<{
+  name:string;
+  email:string;
+  avatar:string;
+}> = [
     { name: "Ajay", email: "ajay@gmail.com", avatar: "/boy.png" },
     { name: "Varun", email: "varun@gmail.com", avatar: "/man_2.png" },
     { name: "Raj", email: "raj@gmail.com", avatar: "/man_3.png" },
