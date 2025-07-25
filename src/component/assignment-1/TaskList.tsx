@@ -1,4 +1,10 @@
-const TaskList = ({ listOfTasks }) => {
+import React from "react";
+
+interface TaskProps {
+  listOfTasks: string []
+}
+
+const TaskList: React.FC<TaskProps> = ({ listOfTasks }) => {
   return (
     <ol>
       {listOfTasks.map((listOfTasks, index) => (

@@ -1,7 +1,7 @@
 import Weather from "@/component/assignment-1/Weather";
 
 const WeatherPage = () => {
-  const weaterList = [2,25,27];
+  const weaterList: number[] = [2,25,27];
   return (
     <>
       <div>
@@ -14,7 +14,7 @@ const WeatherPage = () => {
           different temperature values. <br />
         </p>
       </div>
-      <div>
+      <div className="container-center">
         <h2>Weather Report</h2>
         <br />
         {weaterList.map((value,index) => (

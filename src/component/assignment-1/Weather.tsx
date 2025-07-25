@@ -1,4 +1,10 @@
-const Weather = ({ temperature }) => {
+import React from "react";
+
+interface WeatherProps {
+  temperature:number;
+}
+
+const Weather: React.FC<WeatherProps> = ({ temperature }) => {
   if (temperature > 25) {
     return <div>It's sunny today!</div>;
   } else if (temperature < 10) {

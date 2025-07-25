@@ -20,6 +20,10 @@
     "yup": "^1.6.1"
   },
   "devDependencies": {
+    "@types/node": "^24.0.13",
+    "@types/react": "^19.1.8",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "typescript": "^5.8.3",
     "@babel/preset-env": "^7.27.2",
     "@babel/preset-react": "^7.27.1",
     "@testing-library/jest-dom": "^6.6.3",
@@ -27,7 +31,6 @@
     "@testing-library/user-event": "14.6.1",
     "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
-    "prettier-plugin-organize-imports": "^4.1.0"
+    "jest-environment-jsdom": "^29.7.0"
   }
 }

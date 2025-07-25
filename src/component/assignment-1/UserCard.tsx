@@ -1,4 +1,12 @@
-const UserCard = ({ name, email, avatar }) => {
+import React from "react";
+
+interface CardProps {
+  name:string;
+  email:string;
+  avatar:string;
+}
+
+const UserCard: React.FC<CardProps> = ({ name, email, avatar }) => {
   return (
     <>
       <div className="card">

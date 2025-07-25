@@ -3,7 +3,7 @@ import Counter from "@/component/Counter";
 const CounterPage = () => {
   return (
     <>
-      <div>
+      <div className="container-center">
         <p className="qustion">
           Q4.Create a functional component named Counter that displays a count
           and two buttons: "Increment" and "Decrement".

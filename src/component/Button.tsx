@@ -1,4 +1,11 @@
-const Button = ({ text, color }) => {
+import React from "react";
+
+interface ButtonProps {
+  text:string;
+  color: string;
+}
+
+const Button: React.FC<ButtonProps> = ({ text, color }) => {
   const style = {
     backgroundColor: color,
     color: "red",
