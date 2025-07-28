@@ -1,8 +1,19 @@
 "use client";
-import { createContext, useState } from "react";
-export const LanguageContext = createContext();
+import { createContext, useState, ReactNode } from "react";
 
-const LanguageProvider = ({ children }) => {
+interface LanguageContextType {
+  currentLanguage: string;
+  setCurrentLanguage: (lang: string) => void;
+  languageConverter: () => void;
+}
+
+export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+interface LanguageProviderProps {
+  children: ReactNode;
+}
+
+const LanguageProvider = ({ children }: LanguageProviderProps) => {
   const [currentLanguage, setCurrentLanguage] = useState("English");
 
   const languageConverter = () => {
@@ -21,4 +32,5 @@ const LanguageProvider = ({ children }) => {
     </LanguageContext.Provider>
   );
 };
+
 export default LanguageProvider;

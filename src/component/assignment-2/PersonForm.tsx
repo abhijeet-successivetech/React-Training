@@ -1,16 +1,24 @@
 "use client";
-import { useState } from "react";
+import React, { useState, ChangeEvent, FC } from "react";
 
-const PersonForm = () => {
-  const [form, setForm] = useState({
+type FormState = {
+  firstname: string;
+  lastname: string;
+  age: string;
+};
+
+const PersonForm: FC = () => {
+  const [form, setForm] = useState<FormState>({
     firstname: "",
     lastname: "",
     age: "",
   });
 
-  const handleChange = (field) => (e) => {
-    setForm((prev) => ({ ...prev, [field]: e.target.value }));
-  };
+  const handleChange =
+    (field: keyof FormState) =>
+    (e: ChangeEvent<HTMLInputElement>) => {
+      setForm((prev) => ({ ...prev, [field]: e.target.value }));
+    };
 
   return (
     <div className="container-center">

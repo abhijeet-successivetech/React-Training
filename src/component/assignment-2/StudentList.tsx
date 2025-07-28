@@ -1,12 +1,12 @@
 "use client";
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, FC } from "react";
 
-const StudentList = () => {
-  const initialStudents = useMemo(() => ["Alice", "Bob", "Charlie"], []);
-  const [students, setStudents] = useState(initialStudents);
-  const [newStudent, setNewStudent] = useState("");
+const StudentList: FC = () => {
+  const initialStudents: string[] = useMemo(() => ["Alice", "Bob", "Charlie"], []);
+  const [students, setStudents] = useState<string[]>(initialStudents);
+  const [newStudent, setNewStudent] = useState<string>("");
 
-  const addStudent = () => {
+  const addStudent = (): void => {
     if (newStudent.trim() === "") return;
     setStudents((prev) => [...prev, newStudent.trim()]);
     setNewStudent("");
@@ -17,7 +17,7 @@ const StudentList = () => {
       <h2>Student List</h2>
 
       <ul>
-        {students.map((student, index) => (
+        {students.map((student: string, index: number) => (
           <li key={index}>{student}</li>
         ))}
       </ul>
@@ -27,9 +27,9 @@ const StudentList = () => {
           type="text"
           placeholder="Enter new student name"
           value={newStudent}
-          onChange={(e) => setNewStudent(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewStudent(e.target.value)}
           style={{ flexGrow: 1, padding: "8px" }}
-          onKeyDown={(e) => {
+          onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
             if (e.key === "Enter") addStudent();
           }}
         />
@@ -50,4 +50,5 @@ const StudentList = () => {
     </div>
   );
 };
+
 export default StudentList;

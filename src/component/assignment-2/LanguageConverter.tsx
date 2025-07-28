@@ -1,12 +1,19 @@
 "use client";
-import { LanguageContext } from "@/context/LanguageContext";
 import { useContext } from "react";
+import { LanguageContext } from "@/context/LanguageContext";
+import React from "react";
 
-const LanguageConverter = () => {
-  const { currentLanguage, languageConverter } = useContext(LanguageContext);
+const LanguageConverter: React.FC = () => {
+  const context = useContext(LanguageContext);
+
+  if (!context) {
+    throw new Error("LanguageConverter must be used within a LanguageProvider");
+  }
+
+  const { currentLanguage, languageConverter } = context;
 
   return (
-    <div className="container-center" >
+    <div className="container-center">
       <h1
         style={{
           fontSize: "2rem",
@@ -33,11 +40,7 @@ const LanguageConverter = () => {
           : "Esta es una aplicación para cambiar de idioma."}
       </p>
 
-      <button
-        className="button-primary"
-        onClick={languageConverter}
-        
-      >
+      <button className="button-primary" onClick={languageConverter}>
         {currentLanguage === "English"
           ? "Switch to Spanish"
           : "Cambiar a inglés(Switch to English)"}
@@ -45,4 +48,5 @@ const LanguageConverter = () => {
     </div>
   );
 };
+
 export default LanguageConverter;
