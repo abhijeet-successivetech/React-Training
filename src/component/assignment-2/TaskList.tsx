@@ -1,14 +1,20 @@
 "use client";
-import { useState, useCallback } from "react";
+import React, { useState, useCallback, FC } from "react";
 
-const TaskList = () => {
-  const [tasks, setTasks] = useState([
+type Task = {
+  id: number;
+  text: string;
+  completed: boolean;
+};
+
+const TaskList: FC = () => {
+  const [tasks, setTasks] = useState<Task[]>([
     { id: 1, text: "Task 1", completed: false },
     { id: 2, text: "Task 2", completed: false },
     { id: 3, text: "Task 3", completed: false },
   ]);
 
-  const handleComplete = useCallback((taskId) => {
+  const handleComplete = useCallback((taskId: number): void => {
     setTasks((prevTasks) =>
       prevTasks.map((task) =>
         task.id === taskId ? { ...task, completed: true } : task
@@ -21,18 +27,17 @@ const TaskList = () => {
       <h2>Task List</h2>
       <ul>
         {tasks.map((task) => (
-          <li
-            key={task.id}
-          >
+          <li key={task.id}>
             <span
               style={{
                 textDecoration: task.completed ? "line-through" : "none",
                 color: task.completed ? "gray" : "black",
+                marginRight: "10px",
               }}
             >
               {task.text}
             </span>
-          
+
             {!task.completed && (
               <button
                 onClick={() => handleComplete(task.id)}
@@ -55,4 +60,5 @@ const TaskList = () => {
     </div>
   );
 };
+
 export default TaskList;

@@ -1,13 +1,14 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 
-const Notification = () => {
-  const [message, setMessage] = useState("");
+const Notification: React.FC = () => {
+  const [message, setMessage] = useState<string>("");
 
   useEffect(() => {
-    if (!message) return; 
+    if (!message) return;
+
     const timer = setTimeout(() => {
-      setMessage(""); 
+      setMessage("");
     }, 5000);
 
     return () => clearTimeout(timer);
@@ -28,8 +29,10 @@ const Notification = () => {
         </div>
       )}
 
-      {" "}
-      <button className="button-primary" onClick={() => setMessage("This is a notification!")}>
+      <button
+        className="button-primary"
+        onClick={() => setMessage("This is a notification!")}
+      >
         Show Notification
       </button>
     </div>

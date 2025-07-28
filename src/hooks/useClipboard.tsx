@@ -2,9 +2,9 @@
 import { useState } from "react";
 
 const useClipboard = () => {
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState<boolean>(false);
 
-  const copy = (text) => {
+  const copy = (text: string): void => {
     if (!text) return;
 
     const textarea = document.createElement("textarea");
@@ -12,7 +12,6 @@ const useClipboard = () => {
     document.body.appendChild(textarea);
 
     textarea.select();
-
     document.execCommand("copy");
     document.body.removeChild(textarea);
 
@@ -22,4 +21,5 @@ const useClipboard = () => {
 
   return { copied, copy };
 };
+
 export default useClipboard;

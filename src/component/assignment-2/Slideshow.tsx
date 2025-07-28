@@ -1,11 +1,12 @@
 "use client";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-const Slideshow = () => {
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [delay, setDelay] = useState(2000);
-  const data = Array.from({ length: 10 }, (_, i) => ({
+const Slideshow: React.FC = () => {
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [delay, setDelay] = useState<number>(2); // in seconds
+
+  const data: { url: string }[] = Array.from({ length: 10 }, (_, i) => ({
     url: `/assets/pic${i + 1}.jpg`,
   }));
 
@@ -19,7 +20,14 @@ const Slideshow = () => {
     return () => clearInterval(intervalId);
   }, [isPlaying, delay]);
 
-  const togglePlay = () => setIsPlaying((prev) => !prev);
+  const togglePlay = (): void => setIsPlaying((prev) => !prev);
+
+  const handleDelayChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const value = Number(e.target.value);
+    if (!isNaN(value) && value > 0) {
+      setDelay(value);
+    }
+  };
 
   return (
     <div className="container-center">
@@ -31,6 +39,7 @@ const Slideshow = () => {
           borderRadius: "6px",
           objectFit: "cover",
         }}
+        alt={`Slide ${currentIndex + 1}`}
       />
       <button
         className="button-primary"
@@ -43,14 +52,17 @@ const Slideshow = () => {
           padding: "10px 20px",
           fontSize: "16px",
           backgroundColor: "lightgrey",
-          border: "1px",
+          border: "1px solid #ccc",
           borderRadius: "4px",
         }}
         placeholder="in secs"
-        type="text"
-        onChange={(e) => setDelay(e.target.value)}
+        type="number"
+        min="1"
+        value={delay}
+        onChange={handleDelayChange}
       />
     </div>
   );
 };
+
 export default Slideshow;

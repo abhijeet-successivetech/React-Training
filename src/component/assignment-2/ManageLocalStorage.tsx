@@ -1,7 +1,8 @@
 "use client";
 import useLocalStorage from "@/hooks/useLocalStorage";
+import React from "react";
 
-const ManageLocalStorage = () => {
+const ManageLocalStorage: React.FC = () => {
   const { getValue, setValue, remove } = useLocalStorage("AuthType", "Admin");
 
   const handleSet = () => setValue("Student");
@@ -12,19 +13,14 @@ const ManageLocalStorage = () => {
       <h2>Auth Type: {getValue()}</h2>
 
       <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-        <button
-          onClick={handleSet}
-          className="button-primary"
-        >
+        <button onClick={handleSet} className="button-primary">
           Set AuthType
         </button>
 
         <button
-        className="button-primary"
-          style={{
-          backgroundColor: "#dc3545" }}
+          className="button-primary"
+          style={{ backgroundColor: "#dc3545" }}
           onClick={handleRemove}
-          
         >
           Remove AuthType
         </button>
@@ -32,4 +28,5 @@ const ManageLocalStorage = () => {
     </div>
   );
 };
+
 export default ManageLocalStorage;

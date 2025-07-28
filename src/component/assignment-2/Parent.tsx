@@ -2,9 +2,8 @@
 import React, { useCallback, useState } from "react";
 import Child from "./Child";
 
-const Parent = () => {
-  const [count, setCount] = useState(0);
-
+const Parent: React.FC = () => {
+  const [count, setCount] = useState<number>(0);
 
   const incrementCount = useCallback(() => {
     setCount((prev) => prev + 1);
@@ -21,4 +20,5 @@ const Parent = () => {
     </div>
   );
 };
+
 export default Parent;

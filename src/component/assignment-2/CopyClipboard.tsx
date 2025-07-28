@@ -1,10 +1,14 @@
 "use client";
 import useClipboard from "@/hooks/useClipboard";
-import React, { useState } from "react";
+import React, { useState, ChangeEvent, FC } from "react";
 
-const CopyClipboard = () => {
-  const [text, setText] = useState("");
+const CopyClipboard: FC = () => {
+  const [text, setText] = useState<string>("");
   const { copied, copy } = useClipboard();
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    setText(e.target.value);
+  };
 
   return (
     <div className="container-center">
@@ -23,7 +27,7 @@ const CopyClipboard = () => {
           type="text"
           value={text}
           placeholder="Enter text"
-          onChange={(e) => setText(e.target.value)}
+          onChange={handleChange}
           style={{
             padding: "0.5rem",
             flexGrow: 1,
@@ -40,4 +44,5 @@ const CopyClipboard = () => {
     </div>
   );
 };
+
 export default CopyClipboard;

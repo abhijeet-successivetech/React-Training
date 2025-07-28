@@ -1,15 +1,28 @@
 "use client";
-import { CartContext } from "@/context/CartContext";
 import { useContext } from "react";
+import { CartContext } from "@/context/CartContext";
+import React from "react";
 
-const Cart = () => {
-  const { cart, AddCart, removeCart } = useContext(CartContext);
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+}
 
-  const products = [
-    { id: Date.now(), name: "Product 1", price: 10 },
-    { id: Date.now(), name: "Product 2", price: 20 },
-    { id: Date.now(), name: "Product 3", price: 30 },
-    { id: Date.now(), name: "Product 4", price: 40 },
+const Cart: React.FC = () => {
+  const context = useContext(CartContext);
+
+  if (!context) {
+    throw new Error("Cart must be used within a CartProvider");
+  }
+
+  const { cart, AddCart, removeCart } = context;
+
+  const products: Product[] = [
+    { id: Date.now() + 1, name: "Product 1", price: 10 },
+    { id: Date.now() + 2, name: "Product 2", price: 20 },
+    { id: Date.now() + 3, name: "Product 3", price: 30 },
+    { id: Date.now() + 4, name: "Product 4", price: 40 },
   ];
 
   return (

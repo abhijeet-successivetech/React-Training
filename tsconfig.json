@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx","*.ts*", ".next/types/**/*.ts", "src/component/assignment-1/TaskList.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx","*.ts*", ".next/types/**/*.ts", "src/component/assignment-1/TaskList.tsx", "src/component/assignment-2/VotingApp.jsx"],
   "exclude": ["node_modules"]
 }

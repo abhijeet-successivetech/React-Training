@@ -1,12 +1,12 @@
 'use client';
 import { useState, useEffect } from 'react';
 
-export default function useTimer(initialSeconds) {
-  const [seconds, setSeconds] = useState(initialSeconds);
-  const [isRunning, setIsRunning] = useState(false);
+export default function useTimer(initialSeconds: number) {
+  const [seconds, setSeconds] = useState<number>(initialSeconds);
+  const [isRunning, setIsRunning] = useState<boolean>(false);
 
   useEffect(() => {
-    let timerId;
+    let timerId: NodeJS.Timeout | null = null;
 
     if (isRunning && seconds > 0) {
       timerId = setInterval(() => {
@@ -18,7 +18,9 @@ export default function useTimer(initialSeconds) {
       setIsRunning(false);
     }
 
-    return () => clearInterval(timerId);
+    return () => {
+      if (timerId) clearInterval(timerId);
+    };
   }, [isRunning, seconds]);
 
   const start = () => {
